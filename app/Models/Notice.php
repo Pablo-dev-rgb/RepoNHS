@@ -12,8 +12,4 @@ class Notice extends Model
     public function hospital(){
         return $this->belongsTo(Hospital::class);
     }
-
-    public function users(){
-        return $this->belongsTo(User::class);
-    }
 }
