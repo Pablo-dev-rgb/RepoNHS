@@ -4,17 +4,14 @@ namespace App\Http\Controllers\Api\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\User;
 
 class UserController extends Controller
 {
     //Mostramos la lista de los usuarios filtrado por rol
     public function index(){
 
-        $rolesToFetch = ["Chief", "ServiceManager", "Employee"];
-
-        $data = User::whereHas("roles", function($q) use($rolesToFetch){
-            $q->where("name", $rolesToFetch);
-        })->get(["id", "name", "hospital_id", "service_id"]);
+        $data = User::get(["id", "name", "hospital_id", "service_id"]);
         return response()->json($data, 200);
     }
 
