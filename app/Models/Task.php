@@ -9,6 +9,12 @@ class Task extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'name',
+        'description',
+        'completed',
+    ];
+
     public function service(){
         return $this->belongsTo(Service::class);
     }

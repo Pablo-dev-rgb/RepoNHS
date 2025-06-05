@@ -9,6 +9,12 @@ class Hospital extends Model
 {
     use HasFactory;//nos queadmos haciendo las relaciones en necesaro investigar si es necesario poner los valores por default
 
+    protected $fillable = [
+        'name',
+        'adress',
+        'province',
+    ];
+
     public function notice(){
         return $this->hasMany(Notice::class);
     }

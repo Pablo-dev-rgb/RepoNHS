@@ -9,6 +9,11 @@ class Notice extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'title',
+        'description',
+    ];
+
     public function hospital(){
         return $this->belongsTo(Hospital::class);
     }
