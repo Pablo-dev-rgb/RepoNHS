@@ -20,8 +20,8 @@ return new class extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
-            $table->foreignId("hospital_id")->references("id")->on("hospital")->onUpdate("cascade")->onDelete("cascade");
-            $table->foreignId("service_id")->references("id")->on("service")->onUpdate("cascade")->onDelete("cascade");
+            $table->foreignId("hospital_id")->references("id")->on("hospitals")->onUpdate("cascade")->onDelete("cascade");
+            $table->foreignId("service_id")->references("id")->on("services")->onUpdate("cascade")->onDelete("cascade");
         });
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {

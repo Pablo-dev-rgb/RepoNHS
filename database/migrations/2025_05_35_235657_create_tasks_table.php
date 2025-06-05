@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string("name", 50);
             $table->string("description", 350);
             $table->boolean("completed")->default(0);
-            $table->foreignId("service_id")->references("id")->on("service")->onUpdate("cascade")->onDelete("cascade");
+            $table->foreignId("service_id")->references("id")->on("services")->onUpdate("cascade")->onDelete("cascade");
             $table->timestamps();
         });
     }
