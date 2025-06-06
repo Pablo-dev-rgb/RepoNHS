@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string("title", 50);
             $table->string("description", 150);
-            $table->foreignId("hospital_id")->references("id")->on("hospital")->onUpdate("cascade")->onDelete("cascade");
+            $table->foreignId("hospital_id")->references("id")->on("hospitals")->onUpdate("cascade")->onDelete("cascade");
             $table->timestamps();
         });
     }
