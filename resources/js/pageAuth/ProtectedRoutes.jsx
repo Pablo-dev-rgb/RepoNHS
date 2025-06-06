@@ -7,7 +7,7 @@ const ProtectedRoutes = () =>{
     //vericar si tiene token
     const {getToken} = AuthUser()
     if(!getToken()){
-        return <Navigate to={"/login"} />
+        return <Navigate to={"/"} />
     } 
 
     return(

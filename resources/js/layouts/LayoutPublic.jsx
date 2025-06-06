@@ -3,9 +3,10 @@ import Navbar from "../components/Navbar";
 import { Outlet } from "react-router-dom";
 import Footer from "../components/Footer";
 
-const LayoutEmployee = ()=>{
+const LayoutPublic = ()=>{
     return(
         <>
+        <h1>Public</h1>
         <Navbar />
         <Outlet />
         <Footer />
@@ -13,4 +14,4 @@ const LayoutEmployee = ()=>{
     )
 }
 
-export default LayoutEmployee;
+export default LayoutPublic;

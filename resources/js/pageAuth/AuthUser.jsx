@@ -39,18 +39,15 @@ const AuthUser = () =>{
         if(getRol()==="Admin")
             navigate("/admin")
         if(getRol()==="ServiceManager")
-            navigate("/serviceManager")
+            navigate("/servicemanager")
         if(getRol()==="Chief")
             navigate("/chief")
-        if(getRol()==="Employee")
-            navigate("/employee")
-        
     }
 
     //destruccion de la sesion
     const getLogout = () => {
         sessionStorage.clear()
-        navigate("/login")
+        navigate("/")
     }
 
 

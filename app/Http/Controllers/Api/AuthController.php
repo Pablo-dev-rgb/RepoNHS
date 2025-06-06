@@ -33,7 +33,7 @@ class AuthController extends Controller
 
         //creacion de user
         $user = User::create($input);
-        $user->assignRole("Employee");
+        $user->assignRole("ServiceManager");
 
         $response["success"] = true;
         //$response["token"] = $user->createToken("PJ")->plainTextToken;
