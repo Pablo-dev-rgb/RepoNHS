@@ -18,8 +18,8 @@ class AuthController extends Controller
             "name" => "required",
             "email" => "required|email",
             "password" => "required",
-            "hospital_id" => "required|integer|exists:hospital,id",
-            "service_id" => "required|integer|exists:service,id",
+            "hospital_id" => "required|integer|exists:hospitals,id",
+            "service_id" => "required|integer|exists:services,id",
          ]);
 
          if($validator->fails()){
@@ -33,7 +33,7 @@ class AuthController extends Controller
 
         //creacion de user
         $user = User::create($input);
-        $user->assignRole("ServiceManager");
+        $user->assignRole("Admin");
 
         $response["success"] = true;
         //$response["token"] = $user->createToken("PJ")->plainTextToken;
