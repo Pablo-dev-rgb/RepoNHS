@@ -14,6 +14,20 @@ export default {
           },
         }
       ),
+  //ADMIN
+      getRegister:(token, data)=>axios.post(`${base_api_url}/admin/register`, data,
+        {
+        headers: {
+          Authorization: `Bearer ${token}`, 
+        },
+      }),
+      //HAY QUE VER LA FORMA DE TRAER LOS HOSPITALES DE LA BASE DE DATO
+      // getHospitalAll:(token)=>axios.get(`${base_api_url}/`,
+      // {
+      //   headers: {
+      //     Authorization: `Bearer ${token}`
+      //   }
+      // }),
       getUserAll:(token) =>axios.get(`${base_api_url}/admin/user`,
         {
           headers: {

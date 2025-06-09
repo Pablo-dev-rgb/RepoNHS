@@ -11,12 +11,14 @@ import ProtectedRoutes from "./pageAuth/ProtectedRoutes";
 //admin
 import LayoutAdmin from "./layouts/LayoutAdmin";
 import PanelAdmin from "./pageAdmin/PanelAdmin";
+import Register from "./pageAdmin/RegisterAdmin";
 import UserAll from "./pageAdmin/UserAll";
 import UserUpdate from "./pageAdmin/UserUpdate";
 //chief
 import LayoutChief from "./layouts/LayoutCheif";
 //servicemanager
 import LayoutServiceManager from "./layouts/LayoutServiceManager";
+
 
 
 const App = () => {
@@ -33,6 +35,7 @@ const App = () => {
                 <Route element={<ProtectedRoutes />}>
                     <Route path="/admin" element={<LayoutAdmin />} >
                         <Route index element={<PanelAdmin />} />
+                        <Route path="register" element={<Register />} />
                         <Route path="user" element={<UserAll />} />
                         <Route path="user/edit/:id" element={<UserUpdate/>} />
 

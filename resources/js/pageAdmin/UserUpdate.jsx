@@ -36,10 +36,8 @@ const UserUpdate = () =>{
 
     try {
         await Config.getUserUpdate(token, dataToSend, id);
-        alert('¡Usuario actualizado exitosamente!');
         navigate("/admin/user");
     } catch (err) {
-        console.error("Error al actualizar el usuario:", err);
         alert('Error al actualizar el usuario. Por favor, inténtalo de nuevo.');
     }
 };

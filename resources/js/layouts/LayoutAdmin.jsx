@@ -9,7 +9,7 @@ const LayoutAdmin = ()=>{
         <h1>Admin</h1>
         <Navbar />
         <Outlet />
-        <Footer />
+        <Footer />  
         </>
     )
 }

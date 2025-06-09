@@ -29,6 +29,7 @@ const UserAll = () => {
                 <Sidebar/>
                 <div className="col-sm-9 mt-3 mb-3">
                     <div className="card">
+                        <div className="card-header">LISTA USUARIOS</div>
                         <div className="card-body">
                             <table className="table">
                                 <thead>
@@ -53,6 +54,7 @@ const UserAll = () => {
                                         ))
                                     )}
                                 </tbody>
+                                <Link to={`/admin/register`} className="btn btn-primary mt-3">Registrar usuario</Link>
                             </table>
                         </div>
                     </div>
