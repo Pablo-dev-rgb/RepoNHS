@@ -11,7 +11,7 @@ class UserController extends Controller
     //Mostramos la lista de los usuarios filtrado por rol
     public function index(){
 
-        $data = User::get(["id", "name", "hospital_id", "service_id"]);
+        $data = User::get(["id", "name", "phone", "hospital_id", "service_id"]);
         return response()->json($data, 200);
     }
 
@@ -24,7 +24,9 @@ class UserController extends Controller
     //Actualizar usuario
     public function update(Request $request, $id){
         $data = User::find($id);
-        $data->fill($request->all());
+        $data->name = $request->input('name');
+        $data->email = $request->input('email');
+        $data->phone = $request->input('phone');
         $data->save();
         return response()->json($data, 200);
     }
