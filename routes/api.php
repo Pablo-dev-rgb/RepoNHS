@@ -33,6 +33,9 @@ Route::prefix("v1")->group(function(){
 
         //:rolAdmin(admin/users y admin/service)
         Route::post("/admin/register", [AuthController::class, "register"]);
+        Route::get("/admin/roles", [AuthController::class, "getRoles"]);
+        Route::get("/admin/hospitals", [AuthController::class, "getHospital"]);
+        Route::get("/admin/services", [AuthController::class, "getService"]);
         Route::apiResource("/admin/user", UserController::class);
         Route::apiResource("/admin/service", ServiceController::class);
 

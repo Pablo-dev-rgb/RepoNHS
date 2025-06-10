@@ -15,6 +15,24 @@ export default {
         }
       ),
   //ADMIN
+      getRolesAll:(token)=>axios.get(`${base_api_url}/admin/roles`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        }),
+      getHospitalsAll:(token)=>axios.get(`${base_api_url}/admin/hospitals`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        }),
+      getServicesAll:(token)=>axios.get(`${base_api_url}/admin/services`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        }),
       getRegister:(token, data)=>axios.post(`${base_api_url}/admin/register`, data,
         {
         headers: {

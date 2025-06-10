@@ -3,13 +3,36 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\Hospital;
+use App\Models\Service;
 use App\Models\User;
+use GuzzleHttp\Promise\Create;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\Rule;
+use Spatie\Permission\Models\Role;
 
 class AuthController extends Controller
 {
+   //Obtener los roles
+   public function getRoles(){
+        $data = Role::get(["id", "name"]);
+        return response()->json($data, 200);
+    }
+
+    //Obtener hospitales
+   public function getHospital(){
+        $data = Hospital::get(["id", "name"]);
+        return response()->json($data, 200);
+    }
+
+    //Obtener los servicios
+   public function getService(){
+        $data = Service::get(["id", "name"]);
+        return response()->json($data, 200);
+    }
+
     public function register(Request $request){
 
         $response = ["success"=>false];
@@ -20,6 +43,7 @@ class AuthController extends Controller
             "password" => "required",
             "hospital_id" => "required|integer|exists:hospitals,id",
             "service_id" => "required|integer|exists:services,id",
+            "role" => ["required", "string", Rule::exists('roles', 'name')],
          ]);
 
          if($validator->fails()){
@@ -31,9 +55,14 @@ class AuthController extends Controller
         $input = $request->all();
         $input ["password"] = bcrypt($input["password"]);
 
+        $roleName = $input["role"]; //Guadamos el nombre del rol
+        unset($input["role"]); //Eliminamos "role" del array de input
+
         //creacion de user
         $user = User::create($input);
-        $user->assignRole("Admin");
+
+        //Asignar rol dinamicamente
+        $user->assignRole($roleName);
 
         $response["success"] = true;
         //$response["token"] = $user->createToken("PJ")->plainTextToken;

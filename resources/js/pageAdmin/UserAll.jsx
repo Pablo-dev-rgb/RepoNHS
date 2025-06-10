@@ -54,8 +54,8 @@ const UserAll = () => {
                                         ))
                                     )}
                                 </tbody>
-                                <Link to={`/admin/register`} className="btn btn-primary mt-3">Registrar usuario</Link>
                             </table>
+                             <Link to={`/admin/register`} className="btn btn-primary mt-3">Registrar usuario</Link>
                         </div>
                     </div>
                 </div>

@@ -31,16 +31,15 @@ const UserUpdate = () =>{
     const submitUpdate = async (ev) => {
     ev.preventDefault();
     const token = getToken();
-    // Envía el 'phone' tal cual, como string.
-    const dataToSend = { name, email, phone };
 
-    try {
-        await Config.getUserUpdate(token, dataToSend, id);
-        navigate("/admin/user");
-    } catch (err) {
-        alert('Error al actualizar el usuario. Por favor, inténtalo de nuevo.');
-    }
-};
+    const dataToSend = { name, email, phone };
+        try {
+            await Config.getUserUpdate(token, dataToSend, id);
+            navigate("/admin/user");
+        } catch (err) {
+            alert('Error al actualizar el usuario. Por favor, inténtalo de nuevo.');
+        }
+    };
     return(
         <div className="container bg-light">
             <div className="row justify-content-center mt-5 mb-5">
