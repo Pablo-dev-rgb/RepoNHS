@@ -54,8 +54,7 @@ const Login = ()=>{
                             
                             <button onClick={submitLogin} className="btn btn-primary w-100 mt-3">Iniciar sesion</button>
                             <p className="text-center mt-3">{message}</p>
-                            <hr />
-                            <a href="/register" className="btn btn-primary w-100 mt-3">Registrarse</a>
+                            <p className="text-center mt-3"><a href="#" className="small text-decoration-none">Términos y condiciones</a></p>
                         </div>
                     </div>
                 </div>

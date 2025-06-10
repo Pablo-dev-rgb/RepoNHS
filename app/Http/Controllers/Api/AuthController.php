@@ -16,19 +16,19 @@ use Spatie\Permission\Models\Role;
 class AuthController extends Controller
 {
    //Obtener los roles
-   public function getRoles(){
+    public function getRoles(){
         $data = Role::get(["id", "name"]);
         return response()->json($data, 200);
     }
 
     //Obtener hospitales
-   public function getHospital(){
+    public function getHospital(){
         $data = Hospital::get(["id", "name"]);
         return response()->json($data, 200);
     }
 
     //Obtener los servicios
-   public function getService(){
+    public function getService(){
         $data = Service::get(["id", "name"]);
         return response()->json($data, 200);
     }

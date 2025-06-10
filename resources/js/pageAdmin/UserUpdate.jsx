@@ -40,6 +40,7 @@ const UserUpdate = () =>{
             alert('Error al actualizar el usuario. Por favor, inténtalo de nuevo.');
         }
     };
+    
     return(
         <div className="container bg-light">
             <div className="row justify-content-center mt-5 mb-5">

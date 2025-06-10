@@ -14,10 +14,12 @@ import PanelAdmin from "./pageAdmin/PanelAdmin";
 import Register from "./pageAdmin/RegisterAdmin";
 import UserAll from "./pageAdmin/UserAll";
 import UserUpdate from "./pageAdmin/UserUpdate";
+import ServiceAll from "./pageAdmin/ServiceAll";
 //chief
 import LayoutChief from "./layouts/LayoutCheif";
 //servicemanager
 import LayoutServiceManager from "./layouts/LayoutServiceManager";
+import ServiceUpdate from "./pageAdmin/ServiceUpdate";
 
 
 
@@ -38,6 +40,8 @@ const App = () => {
                         <Route path="register" element={<Register />} />
                         <Route path="user" element={<UserAll />} />
                         <Route path="user/edit/:id" element={<UserUpdate/>} />
+                        <Route path="service" element={<ServiceAll/>} />
+                        <Route path="service/edit/:id" element={<ServiceUpdate/>} />
 
                     </Route>
                      <Route path="/chief" element={<LayoutChief />} >

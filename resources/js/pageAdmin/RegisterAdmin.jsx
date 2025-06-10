@@ -23,9 +23,9 @@ const Register = () =>{
         const fetchData = async () => {
             try {
                 const [rolesRes, hospitalsRes, servicesRes] = await Promise.all([
-                    Config.getRolesAll(token), // O API.get('/admin/register/roles') si no tienes un método específico
-                    Config.getHospitalsAll(token), // Reemplaza por tu método si lo creas
-                    Config.getServicesAll(token), // Reemplaza por tu método si lo creas
+                    Config.getRolesAll(token),
+                    Config.getHospitalsAll(token),
+                    Config.getServicesAll(token), 
                 ]);
 
                 setRoles(rolesRes.data);
@@ -87,7 +87,7 @@ const Register = () =>{
 
                             <div className="mt-3">
                                 <label>Rol: </label>
-                                <select value={selectedRole} onChange={(e) => setSelectedRole(e.target.value)} required>
+                                <select className="form-control" value={selectedRole} onChange={(e) => setSelectedRole(e.target.value)} required>
                                     {roles.map((role) => (
                                         <option key={role.id} value={role.name}>
                                             {role.name}
@@ -98,7 +98,7 @@ const Register = () =>{
 
                             <div className="mt-3">
                                 <label>Hospital: </label>
-                                <select value={selectedHospital} onChange={(e) => setSelectedHospital(Number(e.target.value))} required>
+                                <select className="form-control" value={selectedHospital} onChange={(e) => setSelectedHospital(Number(e.target.value))} required>
                                     {hospitals.map((hospital) => (
                                         <option key={hospital.id} value={hospital.id}>
                                             {hospital.name}
@@ -109,7 +109,7 @@ const Register = () =>{
 
                             <div className="mt-3">
                                 <label>Servicio: </label>
-                                <select value={selectedService} onChange={(e) => setSelectedService(Number(e.target.value))} required>
+                                <select className="form-control" value={selectedService} onChange={(e) => setSelectedService(Number(e.target.value))} required>
                                     {services.map((service) => (
                                         <option key={service.id} value={service.id}>
                                             {service.name}
