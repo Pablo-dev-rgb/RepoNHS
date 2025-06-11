@@ -33,12 +33,6 @@ export default {
             Authorization: `Bearer ${token}`
           }
         }),
-      getServicesAll2:(token)=>axios.get(`${base_api_url}/admin/service`,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`
-          }
-        }),
       getRegister:(token, data)=>axios.post(`${base_api_url}/admin/register`, data,
         {
         headers: {
@@ -52,13 +46,42 @@ export default {
           },
         }
       ),
-      getUserById:(token, id)=>axios.get(`${base_api_url}/admin/user/${id}`,{
+      getUserById:(token, id)=>axios.get(`${base_api_url}/admin/user/${id}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`, 
+          },
+        }
+      ),
+    getUserUpdate:(token, data, id) =>axios.put(`${base_api_url}/admin/user/${id}`,data,
+      {
         headers: {
           Authorization: `Bearer ${token}`, 
         },
       }
     ),
-    getUserUpdate:(token, data, id) =>axios.put(`${base_api_url}/admin/user/${id}`,data,
+    getServicesAll2:(token)=>axios.get(`${base_api_url}/admin/service`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      }
+    ),
+    getServiceById:(token, id)=>axios.get(`${base_api_url}/admin/service/${id}`,
+      {
+        headers: {
+           Authorization: `Bearer ${token}`, 
+        },
+      }
+    ),
+    getServiceUpdate:(token, data, id) =>axios.put(`${base_api_url}/admin/service/${id}`,data,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`, 
+        },
+      }
+    ),
+    getServiceStore:(token, data) =>axios.post(`${base_api_url}/admin/service`,data,
       {
         headers: {
           Authorization: `Bearer ${token}`, 

@@ -16,7 +16,12 @@ class ServiceController extends Controller
     //Crear Service
     public function store(Request $request){
         //aqui deberiamos agregar una validacion
-        $data = new Service($request->all());
+        $validatedData = $request->validate([
+            'name' => 'required',
+            'hospital_id' => 'required|integer|exists:hospitals,id',
+        ]);
+        
+        $data = new Service($validatedData);
         $data->save();
         return response()->json($data, 200);
     }

@@ -11,16 +11,16 @@ import ProtectedRoutes from "./pageAuth/ProtectedRoutes";
 //admin
 import LayoutAdmin from "./layouts/LayoutAdmin";
 import PanelAdmin from "./pageAdmin/PanelAdmin";
-import Register from "./pageAdmin/RegisterAdmin";
+import Register from "./pageAdmin/UserRegister";
 import UserAll from "./pageAdmin/UserAll";
 import UserUpdate from "./pageAdmin/UserUpdate";
 import ServiceAll from "./pageAdmin/ServiceAll";
+import ServiceUpdate from "./pageAdmin/ServiceUpdate";
+import ServiceStrore from "./pageAdmin/ServiceStore";
 //chief
 import LayoutChief from "./layouts/LayoutCheif";
 //servicemanager
 import LayoutServiceManager from "./layouts/LayoutServiceManager";
-import ServiceUpdate from "./pageAdmin/ServiceUpdate";
-
 
 
 const App = () => {
@@ -42,6 +42,7 @@ const App = () => {
                         <Route path="user/edit/:id" element={<UserUpdate/>} />
                         <Route path="service" element={<ServiceAll/>} />
                         <Route path="service/edit/:id" element={<ServiceUpdate/>} />
+                        <Route path="service/create" element={<ServiceStrore/>} />
 
                     </Route>
                      <Route path="/chief" element={<LayoutChief />} >

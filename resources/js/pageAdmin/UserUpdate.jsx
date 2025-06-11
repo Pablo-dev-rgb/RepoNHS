@@ -18,7 +18,7 @@ const UserUpdate = () =>{
         const token = getToken();
 
         const getUserById = async ()=>{
-            Config.getUserById(token, id)
+            await Config.getUserById(token, id)
             .then(({data})=>{
                 setName(data.name || '')
                 setEmail(data.email || '')
@@ -29,16 +29,16 @@ const UserUpdate = () =>{
     },[])
 
     const submitUpdate = async (ev) => {
-    ev.preventDefault();
-    const token = getToken();
+        ev.preventDefault();
+        const token = getToken();
 
-    const dataToSend = { name, email, phone };
-        try {
-            await Config.getUserUpdate(token, dataToSend, id);
-            navigate("/admin/user");
-        } catch (err) {
-            alert('Error al actualizar el usuario. Por favor, inténtalo de nuevo.');
-        }
+        const dataToSend = { name, email, phone };
+            try {
+                await Config.getUserUpdate(token, dataToSend, id);
+                navigate("/admin/user");
+            } catch (err) {
+                alert('Error al actualizar el usuario. Por favor, inténtalo de nuevo.');
+            }
     };
     
     return(
