@@ -27,36 +27,36 @@ const Navbar = () =>{
             return(
                 <>
                 <li className="nav-item">
-                    <a className="nav-link" href={`/${getRol()}`} >Administracion | {user.name} </a>
+                    <a className="nav-link text-white" href={`/${getRol()}`} >Administracion | {user.name} </a>
                 </li>
                 <li className="nav-item">
-                    <a className="nav-link" href="#" onClick={logoutUser}>Logout</a>
+                    <a className="nav-link text-white" href="#" onClick={logoutUser}>Logout</a>
                 </li>
                 </>
             )
         }else{
             return(
                 <li className="nav-item">
-                    <a className="nav-link" href="/login">Login</a>
+                    <a className="nav-link text-white" href="/login">Login</a>
                 </li>
             )
         }
     }
     
     return(
-        <nav className="navbar navbar-expand-lg bg-light shadow-sm">
+        <nav className="navbar navbar-expand-lg bg-secondary shadow-sm">
         <div className="container">
-            <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <button className="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
             </button>
             <div className="collapse navbar-collapse" id="navbarNav">
             <ul className="navbar-nav me-auto"></ul>
             <ul className="navbar-nav mx-auto">
                 <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="/">Home</a>
+                <a className="nav-link active text-white" aria-current="page" href="/">Home</a>
                 </li>
                 <li className="nav-item">
-                <a className="nav-link" href="/categorias">Categorias</a>
+                <a className="nav-link text-white" href="/categorias">Categorias</a>
                 </li>
             </ul>
             <ul className="navbar-nav ms-auto">

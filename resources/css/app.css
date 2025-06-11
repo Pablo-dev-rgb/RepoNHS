@@ -1,11 +1,25 @@
-@import 'tailwindcss';
+@import url('https://fonts.googleapis.com/css2?family=Ancizar+Serif:ital,wght@0,300..900;1,300..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
-@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
-@source '../../storage/framework/views/*.php';
-@source '../**/*.blade.php';
-@source '../**/*.js';
+body{
+    background-color: #ececec !important;
+      font-family: "Inter", sans-serif !important;
+      font-optical-sizing: auto;
+      font-weight: <weight>;
+      font-style: normal;
+}
 
-@theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
+html, body, #root { /* Si tu app React se monta en un div con id="app" (muy común en Laravel) */
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.App-Container { /* Clase para el div más externo de tu componente App.jsx */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Asegura que el contenedor ocupe al menos el 100% de la altura de la ventana */
+}
+
+.main-content-wrapper { /* Clase para el div que envuelve el contenido principal variable */
+  flex-grow: 1; /* Hace que este elemento crezca y ocupe el espacio restante */
 }

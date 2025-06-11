@@ -9,7 +9,6 @@ const LayoutServiceManager = ()=>{
         <h1>Service Manager</h1>
         <Navbar />
         <Outlet />
-        <Footer />
         </>
     )
 }

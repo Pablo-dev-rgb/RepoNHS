@@ -56,6 +56,7 @@ const ServiceAll = () => {
                                     )}
                                 </tbody>
                             </table>
+                            <Link to={`create`} className="btn btn-primary">Crear Servicio</Link>
                         </div>
                     </div>
                 </div>

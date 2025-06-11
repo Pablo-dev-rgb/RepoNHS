@@ -7,7 +7,7 @@ const Sidebar = () => {
             <div className="list-group">
                 <NavLink to={`/admin/user`} className={({isActive}) => (isActive ? "list-group-item active" : "list-group-item")}>User</NavLink>
                 <NavLink to={`/admin/service`}className={({isActive}) => (isActive ? "list-group-item active" : "list-group-item")}>Service</NavLink>
-                <NavLink to={`/admin/hospital`}className={({isActive}) => (isActive ? "list-group-item active" : "list-group-item")}>Hospital</NavLink>
+                {/* <NavLink to={`/admin/hospital`}className={({isActive}) => (isActive ? "list-group-item active" : "list-group-item")}>Hospital</NavLink> */}
             </div>
         </div>
     )

@@ -9,7 +9,6 @@ const LayoutChief = ()=>{
         <h1>Chief</h1>
         <Navbar />
         <Outlet />
-        <Footer />
         </>
     )
 }

@@ -31,16 +31,12 @@ const ServiceStrore = () => {
     const submitStore = async (ev) => {
         const token = getToken()
         ev.preventDefault()
-
-        const {data} = await Config.getServiceStore(token, {
+        
+        await Config.getServiceStore(token, {
             name ,
             hospital_id: selectHospital,
-            });
-        if (data.success) {
-            navigate("/admin/service");
-        } else {
-            console.error("Error de negocio en el registro:", data.error);
-        }
+        });
+        navigate("/admin/service");
     }
 
     return(

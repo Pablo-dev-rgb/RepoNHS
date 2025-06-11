@@ -1,4 +1,5 @@
 import React from "react";
+import '../css/app.css';
 import ReactDOM from 'react-dom/client';
 import 'bootstrap/dist/css/bootstrap.css';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
@@ -21,6 +22,7 @@ import ServiceStrore from "./pageAdmin/ServiceStore";
 import LayoutChief from "./layouts/LayoutCheif";
 //servicemanager
 import LayoutServiceManager from "./layouts/LayoutServiceManager";
+import Footer from "./components/Footer";
 
 
 const App = () => {
@@ -54,6 +56,7 @@ const App = () => {
                 </Route>
             </Routes>
             </div>
+            <Footer />
             </div>
         </BrowserRouter>
     )

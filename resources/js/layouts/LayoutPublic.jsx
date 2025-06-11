@@ -9,7 +9,6 @@ const LayoutPublic = ()=>{
         <h1>Public</h1>
         <Navbar />
         <Outlet />
-        <Footer />
         </>
     )
 }
