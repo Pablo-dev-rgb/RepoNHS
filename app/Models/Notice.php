@@ -12,6 +12,7 @@ class Notice extends Model
     protected $fillable = [
         'title',
         'description',
+        'hospital_id',
     ];
 
     public function hospital(){

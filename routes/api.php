@@ -48,10 +48,6 @@ Route::prefix("v1")->group(function(){
         Route::apiResource("/servicemanager/task", ServiceManagerTaskController::class);
         Route::apiResource("/servicemanager/service", ServiceManagerServiceController::class);
 
-        //:rolEmployee(employee/service y employee/task)
-        Route::apiResource("/employee/service", EmployeeServiceController::class);
-        Route::apiResource("/employee/task", EmployeeTaskController::class);
-
     });
 });
 
