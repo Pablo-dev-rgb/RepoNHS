@@ -2,12 +2,23 @@ import React, { useEffect, useState } from "react";
 import AuthUser from "../pageAuth/AuthUser";
 import Config from "../Config";
 import Sidebar from "./Sidebar";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const ServiceAll = () => {
 
     const {getToken} = AuthUser()
     const [services, setServices] = useState();
+    const navigate = useNavigate()
+    const {getRol} = AuthUser()
+
+
+    useEffect(()=>{
+            const role = getRol()
+    
+            if(role !== "Admin"){
+                navigate("/denegado")
+            }
+        })
 
     useEffect(()=>{
         getServicesAll();

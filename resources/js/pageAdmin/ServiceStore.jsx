@@ -11,6 +11,16 @@ const ServiceStrore = () => {
     const [selectHospital, setSelectedHospital] = useState('')
     const [hospitals, setHospitals] = useState([])
     const navigate = useNavigate()
+    const {getRol} = AuthUser()
+
+
+    useEffect(()=>{
+            const role = getRol()
+    
+            if(role !== "Admin"){
+                navigate("/denegado")
+            }
+        })
 
     useEffect(() => {
             const token = getToken();

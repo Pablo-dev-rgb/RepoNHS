@@ -13,6 +13,16 @@ const UserUpdate = () =>{
     const [phone, setPhone] = useState('');
     // const [hospital, setHospital] = useState();
     // const [service, setService] = useState();
+    const {getRol} = AuthUser()
+
+
+    useEffect(()=>{
+            const role = getRol()
+    
+            if(role !== "Admin"){
+                navigate("/denegado")
+            }
+        })
 
     useEffect(()=>{
         const token = getToken();

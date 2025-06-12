@@ -15,8 +15,17 @@ const Register = () =>{
     const [hospitals, setHospitals] = useState([]);
     const [selectedService, setSelectedService] = useState('');
     const [services, setServices] = useState([]);
-
     const navigate = useNavigate()
+    const {getRol} = AuthUser()
+
+
+    useEffect(()=>{
+            const role = getRol()
+    
+            if(role !== "Admin"){
+                navigate("/denegado")
+            }
+        })
 
     useEffect(() => {
         const token = getToken();

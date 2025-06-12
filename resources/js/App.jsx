@@ -7,6 +7,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import LayoutPublic from "./layouts/LayoutPublic";
 import Home from "./pagePublic/Home";
 import Login from "./pagePublic/Login";
+import AccesoDenegado from "./pagePublic/AccesoDenegado";
 //protected
 import ProtectedRoutes from "./pageAuth/ProtectedRoutes";
 //admin
@@ -23,6 +24,7 @@ import LayoutChief from "./layouts/LayoutCheif";
 //servicemanager
 import LayoutServiceManager from "./layouts/LayoutServiceManager";
 import Footer from "./components/Footer";
+import PanelChief from "./pageChief/PanelChief";
 
 
 const App = () => {
@@ -35,6 +37,7 @@ const App = () => {
                 <Route path="/" element={<LayoutPublic />} >
                     <Route path="/login" element={<Login />} />
                     <Route index element={<Home />} />
+                    <Route path="/denegado" element={<AccesoDenegado />} />
                 </Route>
                 <Route element={<ProtectedRoutes />}>
                     <Route path="/admin" element={<LayoutAdmin />} >
@@ -48,7 +51,7 @@ const App = () => {
 
                     </Route>
                      <Route path="/chief" element={<LayoutChief />} >
-                        <Route index element={<Home />} />
+                        <Route index element={<PanelChief />} />
                     </Route>
                      <Route path="/servicemanager" element={<LayoutServiceManager />} >
                         <Route index element={<Home />} />
