@@ -21,10 +21,12 @@ import ServiceUpdate from "./pageAdmin/ServiceUpdate";
 import ServiceStrore from "./pageAdmin/ServiceStore";
 //chief
 import LayoutChief from "./layouts/LayoutCheif";
+import PanelChief from "./pageChief/PanelChief";
+import NoticeAll from "./pageChief/NoticeAll";
 //servicemanager
 import LayoutServiceManager from "./layouts/LayoutServiceManager";
 import Footer from "./components/Footer";
-import PanelChief from "./pageChief/PanelChief";
+
 
 
 const App = () => {
@@ -52,6 +54,7 @@ const App = () => {
                     </Route>
                      <Route path="/chief" element={<LayoutChief />} >
                         <Route index element={<PanelChief />} />
+                        <Route path="notice" element={<NoticeAll />} />
                     </Route>
                      <Route path="/servicemanager" element={<LayoutServiceManager />} >
                         <Route index element={<Home />} />

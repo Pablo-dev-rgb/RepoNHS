@@ -28,11 +28,10 @@ class NoticeController extends Controller
     }
     //Actualizar noticia
     public function update(Request $request, $id){
-        dd($request->all());
         //validacion
         $validarData = $request->validate([
-            'title' => 'required',
-            'description' => 'required',
+            'title' => 'nullable|string',
+            'description' => 'nullable|string',
         ]);
 
         //guardar actualizacion
@@ -46,5 +45,11 @@ class NoticeController extends Controller
     public function show($id){
         $data = Notice::find($id);
         return response()->json($data, 200);
+    }
+    //Eliminar noticia
+    public function destroy($id){
+        $data = Notice::findOrFail($id);
+        $data->delete();
+        return response()->json("Noticia eliminada", 200);
     }
 }

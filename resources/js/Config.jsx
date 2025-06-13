@@ -88,4 +88,12 @@ export default {
         },
       }
     ),
+  //CHIEF
+    getNoticeAll:(token)=>axios.get(`${base_api_url}/chief/notice`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`, 
+        },
+      }
+    ),
 }
