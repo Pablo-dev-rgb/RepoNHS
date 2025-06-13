@@ -35,6 +35,16 @@ const NoticeAll = () => {
         // setNotices(response)
     }
 
+    const submitDelete = async (id) => {
+        const token = getToken()
+
+        const isDelete = window.confirm("¿Desea borrar la noticia?")
+        if(isDelete){
+            await Config.noticeDelete(token, id)
+            getNoticeAll()
+        }
+    }
+
     return (
         <div className="container bg-light">
                     <div className="row mt-5 mb-5">
@@ -47,12 +57,12 @@ const NoticeAll = () => {
                                     {
                                         notices.map((notice)=>{
                                             return(
-                                                <div className="hola" key={notice.id}>
+                                                <div className="border-bottom" key={notice.id}>
                                                     <div className="card-body">
                                                     <h5 className="card-title">{notice.title}</h5>
                                                         <p className="card-text">{notice.description}</p>
-                                                        <a href="#" className="card-link ">Mostrar mas</a>
-                                                        <a href="#" className="card-link text-danger">Eliminar</a>
+                                                        <Link to={`edit/${notice.id}`} className="btn btn-primary me-3">Editar</Link>
+                                                        <button className="btn btn-danger" onClick={()=>{submitDelete(notice.id)}}>Eliminar</button>
                                                     </div>
                                                 </div>
                                             )

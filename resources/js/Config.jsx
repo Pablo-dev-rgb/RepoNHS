@@ -1,4 +1,5 @@
 import axios from "axios";
+import { data } from "react-router-dom";
 
 const base_api_url = "http://127.0.0.1:8000/api/v1";
 
@@ -96,4 +97,32 @@ export default {
         },
       }
     ),
+    noticeStore:(token, data)=>axios.post(`${base_api_url}/chief/notice`,data,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`, 
+        },
+      }
+    ),
+    noticeDelete:(token, id)=>axios.delete(`${base_api_url}/chief/notice/${id}`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`, 
+        },
+      }
+    ),
+    getNoticeById:(token, id)=>axios.get(`${base_api_url}/chief/notice/${id}`,
+      {
+        headers: {
+           Authorization: `Bearer ${token}`, 
+        },
+      }
+    ),
+    noticeUpdate:(token, id, data)=>axios.put(`${base_api_url}/chief/notice/${id}`,data,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`, 
+        },
+      }
+    )
 }
