@@ -23,11 +23,13 @@ import ServiceStrore from "./pageAdmin/ServiceStore";
 import LayoutChief from "./layouts/LayoutCheif";
 import PanelChief from "./pageChief/PanelChief";
 import NoticeAll from "./pageChief/NoticeAll";
+import NoticeCreate from "./pageChief/NoticeCreate";
+import NoticeEdit from "./pageChief/NoticeEdit";
+import TaskAll from "./pageChief/TaskAll";
 //servicemanager
 import LayoutServiceManager from "./layouts/LayoutServiceManager";
 import Footer from "./components/Footer";
-import NoticeCreate from "./pageChief/NoticeCreate";
-import NoticeEdit from "./pageChief/NoticeEdit";
+
 
 
 
@@ -59,6 +61,7 @@ const App = () => {
                         <Route path="notice" element={<NoticeAll />} />
                         <Route path="notice/create" element={<NoticeCreate />} />
                         <Route path="notice/edit/:id" element={<NoticeEdit />} />
+                        <Route path="task" element={<TaskAll />} />
                     </Route>
                      <Route path="/servicemanager" element={<LayoutServiceManager />} >
                         <Route index element={<Home />} />

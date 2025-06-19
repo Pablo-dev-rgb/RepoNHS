@@ -56,7 +56,7 @@ const NoticeEdit = () => {
         const token = getToken();
         
         try{
-            await Config.getServiceUpdate(token, id,
+            await Config.noticeUpdate(token, id,
                 {
                     title,
                     description,
