@@ -13,6 +13,7 @@ class Task extends Model
         'name',
         'description',
         'completed',
+        'service_id',
     ];
 
     public function service(){

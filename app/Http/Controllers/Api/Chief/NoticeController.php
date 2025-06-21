@@ -41,11 +41,13 @@ class NoticeController extends Controller
 
         return response()->json($data, 200);
     }
+
     //Buscar noticia por id
     public function show($id){
         $data = Notice::find($id);
         return response()->json($data, 200);
     }
+    
     //Eliminar noticia
     public function destroy($id){
         $data = Notice::findOrFail($id);

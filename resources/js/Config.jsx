@@ -124,5 +124,33 @@ export default {
           Authorization: `Bearer ${token}`, 
         },
       }
+    ),
+    getTaskAll:(token)=>axios.get(`${base_api_url}/chief/task`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`, 
+        },
+      }
+    ),
+    taskDelete:(token, id)=>axios.delete(`${base_api_url}/chief/task/${id}`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`, 
+        },
+      }
+    ),
+    taskUpdate:(token, id, data)=>axios.put(`${base_api_url}/chief/task/${id}`,data,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`, 
+        },
+      }
+    ),
+    getTaskById:(token, id)=>axios.get(`${base_api_url}/chief/task/${id}`,
+      {
+        headers: {
+           Authorization: `Bearer ${token}`, 
+        },
+      }
     )
 }
