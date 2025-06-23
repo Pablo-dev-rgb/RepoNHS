@@ -4,17 +4,19 @@ namespace App\Http\Controllers\Api\Chief;
 
 use App\Http\Controllers\Controller;
 use App\Models\Task;
+use App\Models\Service;
 use Illuminate\Http\Request;
 
 class TaskController extends Controller
 {
+    
     //Crear Tarea
      public function store(Request $request){
         //aqui deberiamos agregar una validacion
         $validatedData = $request->validate([
             'name' => 'required',
             'description' => 'required|string',
-            'completed' => 'required|boolean',
+            'completed' => 'nullable|boolean',
             'service_id' => 'required|integer|exists:services,id'
         ]);
         
@@ -66,4 +68,11 @@ class TaskController extends Controller
         $data->delete();
         return response()->json("Tarea eliminada", 200);
     }
+
+     //Mostrar lista de servicios
+    public function getService(){
+        $data = Service::get(["id", "name", "hospital_id"]);
+        return response()->json($data, 200);
+    }
+    
 }

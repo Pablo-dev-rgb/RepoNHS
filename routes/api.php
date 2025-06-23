@@ -43,6 +43,7 @@ Route::prefix("v1")->group(function(){
         Route::apiResource("/chief/notice", NoticeController::class);
         Route::apiResource("/chief/task", TaskController::class);
         Route::post("/chief/search",[TaskController::class,"search"]);
+        Route::get("/chief/services",[TaskController::class,"getService"]);
 
         //:rolServiceManager(SM/task y SM/users SM/service)
         Route::apiResource("/servicemanager/user", ServiceManagerUserController::class);

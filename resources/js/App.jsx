@@ -26,9 +26,12 @@ import NoticeAll from "./pageChief/NoticeAll";
 import NoticeCreate from "./pageChief/NoticeCreate";
 import NoticeEdit from "./pageChief/NoticeEdit";
 import TaskAll from "./pageChief/TaskAll";
+import TaskCreate from "./pageChief/TaskCreate";
 //servicemanager
 import LayoutServiceManager from "./layouts/LayoutServiceManager";
 import Footer from "./components/Footer";
+import TaskEdit from "./pageChief/TaskEdit";
+
 
 
 
@@ -62,6 +65,8 @@ const App = () => {
                         <Route path="notice/create" element={<NoticeCreate />} />
                         <Route path="notice/edit/:id" element={<NoticeEdit />} />
                         <Route path="task" element={<TaskAll />} />
+                        <Route path="task/create" element={<TaskCreate />} />
+                        <Route path="task/edit/:id" element={<TaskEdit />} />
                     </Route>
                      <Route path="/servicemanager" element={<LayoutServiceManager />} >
                         <Route index element={<Home />} />

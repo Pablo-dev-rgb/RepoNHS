@@ -90,6 +90,13 @@ export default {
       }
     ),
   //CHIEF
+    getServices:(token)=>axios.get(`${base_api_url}/chief/services`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`, 
+        },
+      }
+    ),
     getNoticeAll:(token)=>axios.get(`${base_api_url}/chief/notice`,
       {
         headers: {
@@ -152,5 +159,12 @@ export default {
            Authorization: `Bearer ${token}`, 
         },
       }
-    )
+    ),
+    taskStore:(token, data)=>axios.post(`${base_api_url}/chief/task`,data,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`, 
+        },
+      }
+    ),
 }
