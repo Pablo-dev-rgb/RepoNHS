@@ -58,7 +58,9 @@ const TaskAll = () => {
                                                 <div className="border-bottom" key={task.id}>
                                                     <div className="card-body">
                                                             <h5 className="card-title">{task.name}</h5>
-                                                            <p className="card-text">{task.description}</p>  
+                                                            <p className="card-text">{task.description}</p>
+                                                            <p className="card-time">{task.created_at}</p>
+                                                            <p className="card-service">{task.service.name}</p>
                                                             <Link to={`edit/${task.id}`} className="btn btn-primary me-3">Editar</Link>
                                                             <button className="btn btn-danger" onClick={()=>{submitDelete(task.id)}}>Eliminar</button>
                                                     </div>

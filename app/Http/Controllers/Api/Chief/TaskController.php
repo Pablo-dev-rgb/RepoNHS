@@ -27,7 +27,8 @@ class TaskController extends Controller
 
     //Mostrar  lista tareas
     public function index(){
-        $data = Task::get(["id", "name", "description", "completed","service_id"]);
+        $data = Task::with('service')->get();
+        // $data = Task::get(["id", "name", "description", "completed","service_id", "created_at"]);
         return response()->json($data, 200);
     }
 
@@ -52,6 +53,12 @@ class TaskController extends Controller
     //Buscar noticia por id
     public function show($id){
         $data = Task::find($id);
+
+        if (!$data) {
+            return response()->json(['message' => 'Tarea no encontrada'], 404);
+        }
+
+        $data->load('service:id,name');
         return response()->json($data, 200);
     }
 
