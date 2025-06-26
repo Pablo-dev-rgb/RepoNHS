@@ -47,41 +47,55 @@ const TaskAll = () => {
     return(
          <div className="container bg-light">
                     <div className="row mt-5 mb-5">
-                        <Sidebar/>
-                        <div className="col-md-7 mt-3 mb-3">
+                       
+                        <div className="col-md-12 mt-3 mb-3">
                             
                             <Link to={`create`} className="btn btn-secondary">Crear tarea</Link>
-                            <h3 className="text-center">Lista de tareas</h3>
+                            <h3 className=" text-center">Lista de tareas</h3>
                             <div className="mt-3 mb-3" style={{width: 'auto'}}>
                                 <div className="card-body">
-                                    {
-                                        tasks.map((task)=>{
-                                            return(
-                                                <div className="card mt-3 mb-3 border-bottom" key={task.id}>
-                                                    <div className="card-body d-flex flex-column">
-                                                            <h5 className="card-title">{task.name}</h5>
-                                                            <p className="card-service">{task.service.name}</p>
-                                                            <p className="card-text">{task.description}</p>
-                                                        <div className="d-flex justify-content-between align-items-center mt-3">
-                                                            <p className="card-time">{new Date(task.created_at).toLocaleDateString()}</p>
-                                                            <Dropdown>
-                                                                <Dropdown.Toggle className=" mb-3 " variant="secondary" id={`dropdown-basic-${task.id}`}>
-                                                                    Opciones
-                                                                </Dropdown.Toggle>
+                                    <table className="mt-3 mb-3">
+                                                    <thead>
+                                                        <tr>
+                                                            <th className="px-5">Tarea</th>
+                                                            <th className="px-5">Servicio</th>
+                                                            <th className="ps-4 pe-4">Descripcion</th>
+                                                            <th className="px-5">Fecha</th>
+                                                            <th className="px-5">Completado</th>
+                                                            <th></th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    {
+                                                        tasks.map((task)=>{
+                                                            return(
+                                                                <tr className="border-top border-bottom border-secondary">
+                                                                    <td className="py-3 pe-3">{task.name}</td>
+                                                                    <td className="py-3 pe-3">{task.service.name}</td>
+                                                                    <td className="py-3 pe-3">{task.description}</td>
+                                                                    <td className="text-center py-3 pe-3">{new Date(task.created_at).toLocaleDateString()}</td>
+                                                                    <td className="text-center py-3 pe-3">{task.completed}</td>
+                                                                    <td className="py-3 pe-3"> 
+                                                                        <Dropdown>
+                                                                            <Dropdown.Toggle className="mb-3 " variant="secondary" id={`dropdown-basic-${task.id}`}>
+                                                                                Opciones
+                                                                            </Dropdown.Toggle>
 
-                                                                <Dropdown.Menu>
-                                                                    <Dropdown.Item as={Link} to={`edit/${task.id}`}>Editar</Dropdown.Item>
-                                                                    <Dropdown.Item  onClick={()=>{submitDelete(task.id)}}>Eliminar</Dropdown.Item>
-                                                                </Dropdown.Menu>
-                                                            </Dropdown>
-                                                        </div>
-                                                            {/* <Link to={`edit/${task.id}`} className="btn btn-primary me-3">Editar</Link>
-                                                            <button className="btn btn-danger" onClick={()=>{submitDelete(task.id)}}>Eliminar</button> */}
-                                                    </div>
-                                                </div>
-                                            )
-                                        })
-                                    }    
+                                                                            <Dropdown.Menu>
+                                                                                <Dropdown.Item as={Link} to={`edit/${task.id}`}>Ver</Dropdown.Item>
+                                                                                <Dropdown.Item as={Link} to={`edit/${task.id}`}>Editar</Dropdown.Item>
+                                                                                <Dropdown.Item  onClick={()=>{submitDelete(task.id)}}>Eliminar</Dropdown.Item>
+                                                                                
+                                                                            </Dropdown.Menu>
+                                                                        </Dropdown>
+                                                                    </td>
+                                                                </tr>
+                                                            )
+                                                        })
+                                                    } 
+                                                    </tbody>
+                                                </table>
+                                       
                                 </div>
                             </div>
                         </div>
