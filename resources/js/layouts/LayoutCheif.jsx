@@ -6,7 +6,6 @@ import Footer from "../components/Footer";
 const LayoutChief = ()=>{
     return(
         <>
-        <h1>Chief</h1>
         <Navbar />
         <Outlet />
         </>

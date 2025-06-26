@@ -39,7 +39,7 @@ const ServiceAll = () => {
             <div className="row justify-content-center mt-5 mb-5">
                 <Sidebar/>
                 <div className="col-sm-9 mt-3 mb-3">
-                    <div className="card">
+                    <div className="card mt-3 mb-3">
                         <div className="card-header">LISTA SERVICIOS</div>
                         <div className="card-body">
                             <table className="table">

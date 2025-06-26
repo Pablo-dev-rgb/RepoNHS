@@ -3,6 +3,7 @@ import Sidebar from "./Sidebar";
 import AuthUser from "../pageAuth/AuthUser";
 import { data, Link, useNavigate } from "react-router-dom";
 import Config from "../Config";
+import { Dropdown } from 'react-bootstrap';
 
 const NoticeAll = () => {
 
@@ -49,20 +50,34 @@ const NoticeAll = () => {
         <div className="container bg-light">
                     <div className="row mt-5 mb-5">
                         <Sidebar/>
-                        <div className="col-md-7">
-                            <h3 className="mt-3">Lista de noticias</h3>
-                            <Link to={`create`} className="btn btn-primary">Crear notice</Link>
-                            <div className="card mt-3 mb-3" style={{width: 'auto'}}>
+                        <div className="col-md-7 mt-3 mb-3">
+                             <Link to={`create`} className="btn btn-secondary">Crear notice</Link>
+                            <h3 className="text-center">Lista de noticias</h3>
+                           
+                            <div className="mt-3 mb-3" style={{width: 'auto'}}>
                                 <div className="card-body">
                                     {
                                         notices.map((notice)=>{
                                             return(
-                                                <div className="border-bottom" key={notice.id}>
-                                                    <div className="card-body">
+                                                <div className="card mt-3 mb-3 border-bottom" key={notice.id}>
+                                                    <div className="card-body d-flex flex-column">
                                                     <h5 className="card-title">{notice.title}</h5>
-                                                        <p className="card-text">{notice.description}</p>
-                                                        <Link to={`edit/${notice.id}`} className="btn btn-primary me-3">Editar</Link>
-                                                        <button className="btn btn-danger" onClick={()=>{submitDelete(notice.id)}}>Eliminar</button>
+                                                    <p className="card-text">{notice.description}</p>
+                                                     <div className="d-flex justify-content-between align-items-center mt-3">
+                                                            <p className="card-time">{new Date(notice.created_at).toLocaleDateString()}</p>
+                                                            <Dropdown>
+                                                                <Dropdown.Toggle className=" mb-3 " variant="secondary" id={`dropdown-basic-${notice.id}`}>
+                                                                    Opciones
+                                                                </Dropdown.Toggle>
+
+                                                                <Dropdown.Menu>
+                                                                    <Dropdown.Item as={Link} to={`edit/${notice.id}`}>Editar</Dropdown.Item>
+                                                                    <Dropdown.Item  onClick={()=>{submitDelete(notice.id)}}>Eliminar</Dropdown.Item>
+                                                                </Dropdown.Menu>
+                                                            </Dropdown>
+                                                        </div>
+                                                        {/* <Link to={`edit/${notice.id}`} className="btn btn-primary me-3">Editar</Link>
+                                                        <button className="btn btn-danger" onClick={()=>{submitDelete(notice.id)}}>Eliminar</button> */}
                                                     </div>
                                                 </div>
                                             )

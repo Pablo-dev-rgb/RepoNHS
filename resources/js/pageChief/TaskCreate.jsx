@@ -52,7 +52,7 @@ const TaskCreate = () => {
         <div className="container bg-light">
             <div className="row justify-content-center mt-5 mb-5">
                 <Sidebar/>
-                <div className="col-sm-9 mt-3 mb-3">
+                <div className="col-sm-6 mt-3 mb-3">
                     <div className="card">
                         <div className="card-header">CREAR TAREA</div>
                         <div className="card-body">
@@ -60,12 +60,12 @@ const TaskCreate = () => {
 
                                 <div className="col-sm-12">
                                     <label htmlFor="title">Nombre:</label>
-                                    <input type="text" className="form-control" value={name} onChange={(e)=>setName(e.target.value)} />
+                                    <input type="text" className="form-control " value={name} onChange={(e)=>setName(e.target.value)} />
                                 </div>
 
-                                <div className="col-sm-12">
+                                <div className="mb-6">
                                     <label htmlFor="description">Descripción:</label>
-                                    <input type="text" className="form-control" value={description} onChange={(e)=>setDescription(e.target.value)} />
+                                    <textarea className="form-control" value={description} onChange={(e)=>setDescription(e.target.value)} />
                                 </div>
 
                                 <div className="col-sm-12">

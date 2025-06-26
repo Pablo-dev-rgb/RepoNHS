@@ -10,7 +10,7 @@ class NoticeController extends Controller
 {
     //Mostrar lista de noticias
     public function index(){
-        $data = Notice::get(["id", "title", "description", "hospital_id"]);
+        $data = Notice::get(["id", "title", "description", "hospital_id", "created_at"]);
         return response()->json($data, 200);
     }
     //Crear una nueva noticia

@@ -76,7 +76,7 @@ const TaskEdit = () => {
         <div className="container bg-light">
             <div className="row justify-content-center mt-5 mb-5">
                 <Sidebar/>
-                <div className="col-sm-9 mt-3 mb-3">
+                <div className="col-sm-6 mt-3 mb-3">
                     <div className="card">
                         <div className="card-header">EDITAR TAREA</div>
                         <div className="card-body">
@@ -87,9 +87,9 @@ const TaskEdit = () => {
                                     <input type="text" className="form-control" value={name} onChange={(e)=>setName(e.target.value)} />
                                 </div>
 
-                                <div className="col-sm-12">
+                                <div className="mb-6">
                                     <label htmlFor="description">Descripción:</label>
-                                    <input type="text" className="form-control" value={description} onChange={(e)=>setDescription(e.target.value)} />
+                                    <textarea className="form-control" value={description} onChange={(e)=>setDescription(e.target.value)} />
                                 </div>
 
                                 <div className="col-sm-12">
