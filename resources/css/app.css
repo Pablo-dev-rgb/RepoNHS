@@ -26,7 +26,7 @@ html, body, #root { /* Si tu app React se monta en un div con id="app" (muy com�
 
 /*CSS tabla tareas campo descripcion*/
 .description-cell {
-  max-width: 420px; /* Prueba con un valor más grande, como 600px, 800px, o incluso 100% si lo permite el layout */
+  max-width: 490px; /* Prueba con un valor más grande, como 600px, 800px, o incluso 100% si lo permite el layout */
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;

@@ -54,10 +54,9 @@ const UserUpdate = () =>{
     return(
         <div className="container bg-light">
             <div className="row justify-content-center mt-5 mb-5">
-                <Sidebar/>
                 <div className="col-sm-9 mt-3 mb-3">
+                    <h3 className="text-center">EDITAR USUARIO</h3>
                     <div className="card">
-                        <div className="card-header">EDITAR USUARIO</div>
                         <div className="card-body">
                             <form onSubmit={submitUpdate}>
                                 <div className="col-sm-12">

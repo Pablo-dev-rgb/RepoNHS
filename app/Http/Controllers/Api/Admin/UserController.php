@@ -11,13 +11,18 @@ class UserController extends Controller
     //Mostramos la lista de los usuarios filtrado por rol
     public function index(){
 
-        $data = User::get(["id", "name", "phone", "hospital_id", "service_id"]);
+        $data = User::with('service')->get();
         return response()->json($data, 200);
     }
 
     //Buscar un usuario especifico
     public function show($id){
         $data = User::find($id);
+        if (!$data) {
+            return response()->json(['message' => 'Usuario no encontrado'], 404);
+        }
+
+        $data->load('service:id,name');
         return response()->json($data, 200);
     }
 

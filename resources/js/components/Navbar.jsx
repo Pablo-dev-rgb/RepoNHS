@@ -21,7 +21,51 @@ const Navbar = () =>{
           // Handle logout error (e.g., display a message to the user)
         });
       }
-  }
+    }
+
+    const renderMenu = () => {
+        const role = getRol()
+        console.log(role)
+
+        if(role=="Admin"){
+            return(
+                <Dropdown>
+                    <Dropdown.Toggle variant="secondary" id="dropdown-basic">
+                        Menu
+                    </Dropdown.Toggle>
+                    <Dropdown.Menu>
+                        <Dropdown.Item href="/admin/user">Usuario</Dropdown.Item>
+                        <Dropdown.Item href="/admin/service">Servicio</Dropdown.Item>
+                    </Dropdown.Menu>
+                </Dropdown>
+            )
+        }else if(role=="Chief"){
+            return(
+                <Dropdown>
+                    <Dropdown.Toggle variant="secondary" id="dropdown-basic">
+                       Menu
+                    </Dropdown.Toggle>
+                    <Dropdown.Menu>
+                        <Dropdown.Item href="/chief/notice">Noticias</Dropdown.Item>
+                        <Dropdown.Item href="/chief/task">Tareas</Dropdown.Item>
+                    </Dropdown.Menu>
+                </Dropdown>
+            )
+        }else if(role=="ServiceManager"){
+            return(
+                <Dropdown>
+                    <Dropdown.Toggle variant="secondary" id="dropdown-basic">
+                       Menu
+                    </Dropdown.Toggle>
+                    <Dropdown.Menu>
+                        {/*Aqui deberemos cambiar cuando hagamos el panel de service manager*/}
+                        <Dropdown.Item href="/chief/notice">Noticias</Dropdown.Item>
+                        <Dropdown.Item href="/chief/task">Tareas</Dropdown.Item>
+                    </Dropdown.Menu>
+                </Dropdown>
+            )
+        }
+    }
 
     const renderLinks = () =>{
         if(getToken()){
@@ -55,20 +99,11 @@ const Navbar = () =>{
                     <li className="nav-item">
                     <a className="nav-link active text-white" aria-current="page" href="/">Home</a>
                     </li>
-                    <li className="nav-item">
+                    {/* <li className="nav-item">
                         <a className="nav-link text-white" href={`/${getRol()}`} >Administracion</a>
-                    </li>
+                    </li> */}
                     <li className="nav-item">
-                    <Dropdown>
-                        <Dropdown.Toggle variant="secondary" id="dropdown-basic">
-                            Menu
-                        </Dropdown.Toggle>
-
-                        <Dropdown.Menu>
-                            <Dropdown.Item href="/chief/notice">Noticias</Dropdown.Item>
-                            <Dropdown.Item href="/chief/task">Tareas</Dropdown.Item>
-                        </Dropdown.Menu>
-                    </Dropdown>
+                        {renderMenu()}
                     </li>
                 </ul>
                 <ul className="navbar-nav ms-auto">

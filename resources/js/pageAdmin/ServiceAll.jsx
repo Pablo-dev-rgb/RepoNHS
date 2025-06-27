@@ -37,15 +37,15 @@ const ServiceAll = () => {
     return(
         <div className="container bg-light">
             <div className="row justify-content-center mt-5 mb-5">
-                <Sidebar/>
-                <div className="col-sm-9 mt-3 mb-3">
+                <div className="col-sm-12 mt-3 mb-3">
+                    <h3 className="text-center">LISTA SERVICIOS</h3>
+                    <Link to={`create`} className="btn btn-secondary">Crear Servicio</Link>
                     <div className="card mt-3 mb-3">
-                        <div className="card-header">LISTA SERVICIOS</div>
                         <div className="card-body">
                             <table className="table">
                                 <thead>
                                     <tr>
-                                        <th>ID</th><th>NOMBRE</th><th>HOSPITAL</th><th>ACCION</th>
+                                        <th>NOMBRE</th><th>HOSPITAL</th><th>ACCION</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -56,18 +56,17 @@ const ServiceAll = () => {
                                     ) : (
                                         services.map((service) => (
                                         <tr key={service.id}>
-                                            <td>{service.id}</td>
                                             <td>{service.name}</td>
-                                            <td>{service.hospital_id}</td>
+                                            <td>{service.hospital.name}</td>
                                             <td>
-                                                <Link to={`edit/${service.id}`} className="btn btn-primary">Editar</Link>
+                                                <Link to={`edit/${service.id}`} className="btn btn-secondary">Editar</Link>
                                             </td>
                                         </tr>
                                         ))
                                     )}
                                 </tbody>
                             </table>
-                            <Link to={`create`} className="btn btn-primary">Crear Servicio</Link>
+                           
                         </div>
                     </div>
                 </div>

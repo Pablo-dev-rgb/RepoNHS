@@ -37,15 +37,15 @@ const UserAll = () => {
     return(
         <div className="container bg-light">
             <div className="row justify-content-center mt-5 mb-5">
-                <Sidebar/>
-                <div className="col-sm-9 mt-3 mb-3">
+                <div className="col-sm-12 mt-3 mb-3">
+                    <h3 className="text-center">LISTA USUARIOS</h3>
+                    <Link to={`/admin/register`} className="btn btn-secondary mt-3 mb-3">Registrar usuario</Link>
                     <div className="card">
-                        <div className="card-header">LISTA USUARIOS</div>
                         <div className="card-body">
                             <table className="table">
                                 <thead>
                                     <tr>
-                                        <th>ID</th><th>NOMBRE</th><th>ACCION</th>
+                                        <th>NOMBRE</th><th>SERVICIO</th><th>ACCION</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -56,17 +56,16 @@ const UserAll = () => {
                                     ) : (
                                         users.map((user) => (
                                         <tr key={user.id}>
-                                            <td>{user.id}</td>
                                             <td>{user.name}</td>
+                                            <td>{user.service.name}</td>
                                             <td>
-                                                <Link to={`edit/${user.id}`} className="btn btn-primary">Editar</Link>
+                                                <Link to={`edit/${user.id}`} className="btn btn-secondary">Editar</Link>
                                             </td>
                                         </tr>
                                         ))
                                     )}
                                 </tbody>
                             </table>
-                             <Link to={`/admin/register`} className="btn btn-primary mt-3">Registrar usuario</Link>
                         </div>
                     </div>
                 </div>

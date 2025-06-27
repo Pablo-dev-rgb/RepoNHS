@@ -66,9 +66,9 @@ const TaskAll = () => {
                     <Link to={`create`} className="btn btn-secondary">Crear tarea</Link>
                     <div className="mt-3 mb-3">
                         <div className="card-body">
-                            <div className="table-responsive"> 
-                                <table className="mt-3 mb-3">
-                                    <thead>
+                            <div className="table-responsive "> 
+                                <table className="bg-white mt-3 mb-3">
+                                    <thead className="bg-secondary">
                                         <tr>
                                             <th className="px-4">Tarea</th>
                                             <th className="px-4">Servicio</th>

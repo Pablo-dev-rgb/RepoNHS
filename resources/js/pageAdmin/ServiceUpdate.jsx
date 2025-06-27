@@ -66,8 +66,8 @@ const ServiceUpdate = ()=>{
     return(
         <div className="container bg-light">
             <div className="row justify-content-center mt-5 mb-5">
-                <Sidebar/>
                 <div className="col-sm-9 mt-3 mb-3">
+                    <h3 className="text-center">EDITAR SERVICIO</h3>
                     <div className="card">
                         <div className="card-header">EDITAR SERVICIO</div>
                         <div className="card-body">

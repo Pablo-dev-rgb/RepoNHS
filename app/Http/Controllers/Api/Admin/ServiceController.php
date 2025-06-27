@@ -10,7 +10,7 @@ class ServiceController extends Controller
 {
     //Mostrar lista de servicios
     public function index(){
-        $data = Service::get(["id", "name", "hospital_id"]);
+        $data = Service::with('hospital')->get();
         return response()->json($data, 200);
     }
     //Crear Service
@@ -38,6 +38,12 @@ class ServiceController extends Controller
     //Buscar un servicio especifico
     public function show($id){
         $data = Service::find($id);
+
+        if (!$data) {
+            return response()->json(['message' => 'Servicio no encontrado'], 404);
+        }
+
+        $data->load('hospital:id,name');
         return response()->json($data, 200);
     }
 
