@@ -48,12 +48,10 @@ const NoticeAll = () => {
 
     return (
         <div className="container bg-light">
-                    <div className="row mt-5 mb-5">
-                        <Sidebar/>
-                        <div className="col-md-7 mt-3 mb-3">
-                             <Link to={`create`} className="btn btn-secondary">Crear notice</Link>
+                    <div className="row mt-5 mb-5 justify-content-center">
+                        <div className="col-md-10 mt-3 mb-3">
                             <h3 className="text-center">Lista de noticias</h3>
-                           
+                            <Link to={`create`} className="btn btn-secondary">Crear notice</Link>
                             <div className="mt-3 mb-3" style={{width: 'auto'}}>
                                 <div className="card-body">
                                     {

@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
 import { Dropdown } from 'react-bootstrap';
 
 const Sidebar = () => {
@@ -12,7 +11,7 @@ const Sidebar = () => {
     return (
          <Dropdown className="col-sm-2">
             <Dropdown.Toggle className="mt-3 mb-3" variant="secondary" id="dropdown-basic">
-                Opciones
+                 <span className="navbar-toggler-icon"></span>
             </Dropdown.Toggle>
 
             <Dropdown.Menu>

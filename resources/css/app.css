@@ -4,7 +4,7 @@ body{
     background-color: #ececec !important;
       font-family: "Inter", sans-serif !important;
       font-optical-sizing: auto;
-      font-weight: <weight>;
+      font-weight: normal;
       font-style: normal;
 }
 
@@ -22,4 +22,12 @@ html, body, #root { /* Si tu app React se monta en un div con id="app" (muy com√
 
 .main-content-wrapper { /* Clase para el div que envuelve el contenido principal variable */
   flex-grow: 1; /* Hace que este elemento crezca y ocupe el espacio restante */
+}
+
+/*CSS tabla tareas campo descripcion*/
+.description-cell {
+  max-width: 420px; /* Prueba con un valor m√°s grande, como 600px, 800px, o incluso 100% si lo permite el layout */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

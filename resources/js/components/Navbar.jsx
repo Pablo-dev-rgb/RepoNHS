@@ -1,6 +1,7 @@
 import React from "react";
 import AuthUser from "../pageAuth/AuthUser";
 import Config from "../Config";
+import { Dropdown } from 'react-bootstrap';
 
 const Navbar = () =>{
 
@@ -27,7 +28,7 @@ const Navbar = () =>{
             return(
                 <>
                 <li className="nav-item">
-                    <a className="nav-link text-white" href={`/${getRol()}`} >Administracion | {user.name} </a>
+                    <a className="nav-link text-white">{user.name}</a>
                 </li>
                 <li className="nav-item">
                     <a className="nav-link text-white" href="#" onClick={logoutUser}>Logout</a>
@@ -55,7 +56,19 @@ const Navbar = () =>{
                     <a className="nav-link active text-white" aria-current="page" href="/">Home</a>
                     </li>
                     <li className="nav-item">
-                    <a className="nav-link text-white" href="/categorias">Categorias</a>
+                        <a className="nav-link text-white" href={`/${getRol()}`} >Administracion</a>
+                    </li>
+                    <li className="nav-item">
+                    <Dropdown>
+                        <Dropdown.Toggle variant="secondary" id="dropdown-basic">
+                            Menu
+                        </Dropdown.Toggle>
+
+                        <Dropdown.Menu>
+                            <Dropdown.Item href="/chief/notice">Noticias</Dropdown.Item>
+                            <Dropdown.Item href="/chief/task">Tareas</Dropdown.Item>
+                        </Dropdown.Menu>
+                    </Dropdown>
                     </li>
                 </ul>
                 <ul className="navbar-nav ms-auto">
