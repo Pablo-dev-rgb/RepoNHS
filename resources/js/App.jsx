@@ -31,6 +31,8 @@ import TaskCreate from "./pageChief/TaskCreate";
 import LayoutServiceManager from "./layouts/LayoutServiceManager";
 import Footer from "./components/Footer";
 import TaskEdit from "./pageChief/TaskEdit";
+import PanelServiceManager from "./pageServiceManager/PanelServiceManager";
+import UserAllSM from "./pageServiceManager/UserAll";
 
 
 
@@ -69,7 +71,8 @@ const App = () => {
                         <Route path="task/edit/:id" element={<TaskEdit />} />
                     </Route>
                      <Route path="/servicemanager" element={<LayoutServiceManager />} >
-                        <Route index element={<Home />} />
+                        <Route index element={<PanelServiceManager />} />
+                        <Route path="/servicemanager/user" element={<UserAllSM />} />
                     </Route>
                 </Route>
             </Routes>

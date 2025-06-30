@@ -58,9 +58,9 @@ const Navbar = () =>{
                        Menu
                     </Dropdown.Toggle>
                     <Dropdown.Menu>
-                        {/*Aqui deberemos cambiar cuando hagamos el panel de service manager*/}
-                        <Dropdown.Item href="/chief/notice">Noticias</Dropdown.Item>
-                        <Dropdown.Item href="/chief/task">Tareas</Dropdown.Item>
+                        <Dropdown.Item href="/servicemanager/user">Usuarios</Dropdown.Item>
+                        <Dropdown.Item href="/servicemanager/task">Tareas</Dropdown.Item>
+                        <Dropdown.Item href="/servicemanager/service">Servicios</Dropdown.Item>
                     </Dropdown.Menu>
                 </Dropdown>
             )
@@ -100,7 +100,7 @@ const Navbar = () =>{
                     <a className="nav-link active text-white" aria-current="page" href="/">Home</a>
                     </li>
                     {/* <li className="nav-item">
-                        <a className="nav-link text-white" href={`/${getRol()}`} >Administracion</a>
+                        <a className="nav-link text-white" href= >Administracion</a>
                     </li> */}
                     <li className="nav-item">
                         {renderMenu()}

@@ -47,6 +47,7 @@ Route::prefix("v1")->group(function(){
 
         //:rolServiceManager(SM/task y SM/users SM/service)
         Route::apiResource("/servicemanager/user", ServiceManagerUserController::class);
+        Route::get("/servicemanager/users", [ServiceManagerUserController::class, "getUserByService"]);
         Route::apiResource("/servicemanager/task", ServiceManagerTaskController::class);
         Route::apiResource("/servicemanager/service", ServiceManagerServiceController::class);
 
