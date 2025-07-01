@@ -10,13 +10,8 @@ use App\Http\Controllers\Api\Admin\UserController;
 use App\Http\Controllers\Api\Chief\NoticeController;
 use App\Http\Controllers\Api\Chief\TaskController;
 //RolServiceManager
-use App\Http\Controllers\Api\ServiceManager\ServiceController as ServiceManagerServiceController;
 use App\Http\Controllers\Api\ServiceManager\TaskController as ServiceManagerTaskController;
 use App\Http\Controllers\Api\ServiceManager\UserController as ServiceManagerUserController;
-//RolEmployee
-use App\Http\Controllers\Api\Employee\ServiceController as EmployeeServiceController;
-use App\Http\Controllers\Api\Employee\TaskController as EmployeeTaskController;
-
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -45,11 +40,9 @@ Route::prefix("v1")->group(function(){
         Route::post("/chief/search",[TaskController::class,"search"]);
         Route::get("/chief/services",[TaskController::class,"getService"]);
 
-        //:rolServiceManager(SM/task y SM/users SM/service)
-        Route::apiResource("/servicemanager/user", ServiceManagerUserController::class);
-        Route::get("/servicemanager/users", [ServiceManagerUserController::class, "getUserByService"]);
-        Route::apiResource("/servicemanager/task", ServiceManagerTaskController::class);
-        Route::apiResource("/servicemanager/service", ServiceManagerServiceController::class);
+        //:rolServiceManager(SM/task)
+        Route::get("/servicemanager/my-task", [ServiceManagerUserController::class, "getUserServiceTasks"]);
+        Route::put('/servicemanager/task/{task}/toggle-completion', [ServiceManagerUserController::class, 'toggleTaskCompletion']);
 
     });
 });

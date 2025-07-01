@@ -25,7 +25,6 @@ const Navbar = () =>{
 
     const renderMenu = () => {
         const role = getRol()
-        console.log(role)
 
         if(role=="Admin"){
             return(
@@ -58,9 +57,7 @@ const Navbar = () =>{
                        Menu
                     </Dropdown.Toggle>
                     <Dropdown.Menu>
-                        <Dropdown.Item href="/servicemanager/user">Usuarios</Dropdown.Item>
                         <Dropdown.Item href="/servicemanager/task">Tareas</Dropdown.Item>
-                        <Dropdown.Item href="/servicemanager/service">Servicios</Dropdown.Item>
                     </Dropdown.Menu>
                 </Dropdown>
             )

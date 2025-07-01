@@ -71,8 +71,8 @@ const TaskAll = () => {
                                     <thead className="bg-secondary">
                                         <tr>
                                             <th className="px-4">Tarea</th>
-                                            <th className="px-4">Servicio</th>
                                             <th className="ps-4 pe-4">Descripcion</th>
+                                            <th className="px-4">Servicio</th>
                                             <th className="px-4">Fecha</th>
                                             <th className="px-4">Completado</th>
                                             <th></th>
@@ -84,8 +84,8 @@ const TaskAll = () => {
                                             return(
                                                 <tr className="border-top border-bottom border-secondary" key={task.id}>
                                                     <td className="py-3 pe-3">{task.name}</td>
-                                                    <td className="py-3 pe-3">{task.service.name}</td>
                                                     <td className="py-3 pe-3 description-cell">{task.description}</td>
+                                                    <td className="py-3 pe-3">{task.service.name}</td>
                                                     <td className="text-center py-3 pe-3">{new Date(task.created_at).toLocaleDateString()}</td>
                                                     <td className="text-center py-3 pe-3">
                                                         <div className="form-check form-switch d-inline-block">

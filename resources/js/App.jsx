@@ -8,6 +8,7 @@ import LayoutPublic from "./layouts/LayoutPublic";
 import Home from "./pagePublic/Home";
 import Login from "./pagePublic/Login";
 import AccesoDenegado from "./pagePublic/AccesoDenegado";
+import Footer from "./components/Footer";
 //protected
 import ProtectedRoutes from "./pageAuth/ProtectedRoutes";
 //admin
@@ -27,12 +28,11 @@ import NoticeCreate from "./pageChief/NoticeCreate";
 import NoticeEdit from "./pageChief/NoticeEdit";
 import TaskAll from "./pageChief/TaskAll";
 import TaskCreate from "./pageChief/TaskCreate";
+import TaskEdit from "./pageChief/TaskEdit";
 //servicemanager
 import LayoutServiceManager from "./layouts/LayoutServiceManager";
-import Footer from "./components/Footer";
-import TaskEdit from "./pageChief/TaskEdit";
 import PanelServiceManager from "./pageServiceManager/PanelServiceManager";
-import UserAllSM from "./pageServiceManager/UserAll";
+import TaskAllSM from "./pageServiceManager/TaskAll";
 
 
 
@@ -72,7 +72,7 @@ const App = () => {
                     </Route>
                      <Route path="/servicemanager" element={<LayoutServiceManager />} >
                         <Route index element={<PanelServiceManager />} />
-                        <Route path="/servicemanager/user" element={<UserAllSM />} />
+                        <Route path="/servicemanager/task" element={<TaskAllSM />} />
                     </Route>
                 </Route>
             </Routes>

@@ -3,22 +3,48 @@
 namespace App\Http\Controllers\Api\ServiceManager;
 
 use App\Http\Controllers\Controller;
+use App\Models\Service;
+use App\Models\Task;
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
-    //Mostramos la lista de los usuarios filtrado por rol
-    public function getUserByService(Request $request){
-        $serviceId = $request->input('service_id');
+    //Mostramos la lista de tareas filtrado por servicio
+    public function getUserServiceTasks(){
+        $user = Auth::user();
 
-        $users = User::whereHas('services', function ($query) use ($serviceId) {
-            if ($serviceId) {
-                $query->where('services.id', $serviceId);
-            }
-        })
-        ->with('services')
-        ->get();
+        $serviceId = $user->service_id;
+
+        $service = Service::with('task')->find($serviceId);
+
+        $tasks = $service->task;
+
+        if ($tasks->isEmpty()) {
+            return response()->json(['message' => 'No hay tareas asignadas a su servicio.'], 200);
+        }
+
+        return response()->json($tasks, 200);
+    }
+
+    public function toggleTaskCompletion(Request $request, Task $task)
+    {
+        $user = Auth::user();
+
+        // Si no hay usuario autenticado
+        if (!$user) {
+            return response()->json(['message' => 'No autorizado para modificar esta tarea.'], 403);
+        }
+
+        $request->validate([
+            'completed' => 'required|boolean', //(true/false)
+        ]);
+
+        // 3. Actualizar el estado 'completed' de la tarea
+        $task->completed = $request->input('completed');
+        $task->save();
+
         return response()->json(200);
     }
 

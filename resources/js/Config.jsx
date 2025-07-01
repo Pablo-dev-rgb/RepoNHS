@@ -167,4 +167,19 @@ export default {
         },
       }
     ),
+  //SERVICEMANAGER
+    getTaskAllByService:(token)=>axios.get(`${base_api_url}/servicemanager/my-task`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`, 
+        },
+      }
+    ),
+    updateTaskCompletion: (taskId, newCompletedStatus, token) => axios.put(`${base_api_url}/servicemanager/task/${taskId}/toggle-completion`,{ completed: newCompletedStatus },
+        {
+          headers: {
+             Authorization: `Bearer ${token}`,
+          }
+        }
+    ),
 }
