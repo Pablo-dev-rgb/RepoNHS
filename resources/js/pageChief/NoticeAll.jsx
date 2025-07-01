@@ -32,8 +32,6 @@ const NoticeAll = () => {
                 setNotices(data)
             }
         })
-        // console.log(response)
-        // setNotices(response)
     }
 
     const submitDelete = async (id) => {
@@ -74,8 +72,6 @@ const NoticeAll = () => {
                                                                 </Dropdown.Menu>
                                                             </Dropdown>
                                                         </div>
-                                                        {/* <Link to={`edit/${notice.id}`} className="btn btn-primary me-3">Editar</Link>
-                                                        <button className="btn btn-danger" onClick={()=>{submitDelete(notice.id)}}>Eliminar</button> */}
                                                     </div>
                                                 </div>
                                             )

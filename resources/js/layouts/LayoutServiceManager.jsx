@@ -6,7 +6,6 @@ import Footer from "../components/Footer";
 const LayoutServiceManager = ()=>{
     return(
         <>
-        <h1>Service Manager</h1>
         <Navbar />
         <Outlet />
         </>

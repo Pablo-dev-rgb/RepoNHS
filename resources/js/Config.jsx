@@ -7,6 +7,7 @@ const base_api_url = "http://127.0.0.1:8000/api/v1";
 export default {
   //PUBLIC
     getLogin:(data)=>axios.post(`${base_api_url}/auth/login`, data),
+    getNoticeAllPublic:()=>axios.get(`${base_api_url}/public/notices`),
   //PRIVATE
     getLogout:(token) =>axios.post(`${base_api_url}/auth/logout`,{},
         {

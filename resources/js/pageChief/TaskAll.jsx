@@ -49,18 +49,18 @@ const TaskAll = () => {
         }
 
     const handleOpenDetailModal = (task) => {
-    setSelectedTask(task);
-    setShowDetailModal(true);
+        setSelectedTask(task);
+        setShowDetailModal(true);
     };
 
     const handleCloseDetailModal = () => {
         setShowDetailModal(false);
-        setSelectedTask(null); // Limpiar la tarea seleccionada
+        setSelectedTask(null);
     };
 
     return(
          <div className="container bg-light">
-            <div className="row mt-5 mb-5">
+            <div className="row justify-content-center mt-5 mb-5">
                 <div className="col-md-12  mt-3 mb-3">   
                     <h3 className="text-center">Lista de tareas</h3>
                     <Link to={`create`} className="btn btn-secondary">Crear tarea</Link>

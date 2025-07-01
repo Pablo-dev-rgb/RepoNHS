@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from "react";
 import AuthUser from "../pageAuth/AuthUser";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Config from "../Config";
+import ModalTask from "../components/Modals/ModalTask";
  
 const TaskAll = () => {
 
     const {getRol, getToken} = AuthUser()
     const navigate = useNavigate()
     const [tasks, setTasks] = useState([])
+    const [showDetailModal, setShowDetailModal] = useState(false);
+    const [selectedTask, setSelectedTask] = useState(null);
 
     useEffect(()=>{
         const role = getRol()
@@ -48,6 +51,16 @@ const TaskAll = () => {
         }
     };
 
+    const handleOpenDetailModal = (task) => {
+        setSelectedTask(task);
+        setShowDetailModal(true);
+    };
+
+    const handleCloseDetailModal = () => {
+        setShowDetailModal(false);
+        setSelectedTask(null);
+    };
+
     return(
         <div className="container bg-light">
             <div className="row justify-content-center mt-5 mb-5">
@@ -56,13 +69,14 @@ const TaskAll = () => {
                     <div className="card">
                         <div className="card-body">
                             <div className="table-responsive ">
-                            <table className="table">
-                                <thead>
+                            <table className="col-sm-12 bg-white mt-3 mb-3">
+                                <thead className="bg-secondary">
                                     <tr>
                                         <th>Tarea</th>
                                         <th>Descripción</th>
                                         <th>Fecha</th>
                                         <th>Completado</th>
+                                        <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -87,6 +101,10 @@ const TaskAll = () => {
                                                                 Tarea "{task.name}" Completada
                                                             </label>
                                                         </div>
+                                                    </td>
+                                                    <td>
+                                                        <button as={Link} onClick={() => handleOpenDetailModal(task)} className="btn btn-secondary">Ver</button>
+                                                        <ModalTask show={showDetailModal} onHide={handleCloseDetailModal} taskData={selectedTask} />
                                                     </td>
                                                 </tr>
                                             )

@@ -61,7 +61,7 @@ const TaskCreate = () => {
                             <form onSubmit={submitStore}>
 
                                 <div className="col-sm-12">
-                                    <label htmlFor="title">Nombre:</label>
+                                    <label htmlFor="title">Titulo:</label>
                                     <input type="text" className="form-control " value={name} onChange={(e)=>setName(e.target.value)} />
                                 </div>
 

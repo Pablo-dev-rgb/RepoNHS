@@ -10,7 +10,6 @@ function ModalTask({ show, onHide, taskData }) {
         <Modal.Body>
             {taskData ? (
             <>
-                <p>Servicio: {taskData.service.name}</p>
                 <p>Descripción: {taskData.description}</p>
                 <p style={{ display: 'flex', justifyContent: 'space-between' }}>
                     <span>Completado: {taskData.completed ? 'Sí' : 'No'}</span>

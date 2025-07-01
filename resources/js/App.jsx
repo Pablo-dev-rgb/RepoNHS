@@ -52,17 +52,16 @@ const App = () => {
                 </Route>
                 <Route element={<ProtectedRoutes />}>
                     <Route path="/admin" element={<LayoutAdmin />} >
-                        <Route index element={<PanelAdmin />} />
+                        <Route index element={<Home />} />
                         <Route path="register" element={<Register />} />
                         <Route path="user" element={<UserAll />} />
                         <Route path="user/edit/:id" element={<UserUpdate/>} />
                         <Route path="service" element={<ServiceAll/>} />
                         <Route path="service/edit/:id" element={<ServiceUpdate/>} />
                         <Route path="service/create" element={<ServiceStrore/>} />
-
                     </Route>
                      <Route path="/chief" element={<LayoutChief />} >
-                        <Route index element={<PanelChief />} />
+                        <Route index element={<Home />} />
                         <Route path="notice" element={<NoticeAll />} />
                         <Route path="notice/create" element={<NoticeCreate />} />
                         <Route path="notice/edit/:id" element={<NoticeEdit />} />
@@ -71,7 +70,7 @@ const App = () => {
                         <Route path="task/edit/:id" element={<TaskEdit />} />
                     </Route>
                      <Route path="/servicemanager" element={<LayoutServiceManager />} >
-                        <Route index element={<PanelServiceManager />} />
+                        <Route index element={<Home />} />
                         <Route path="/servicemanager/task" element={<TaskAllSM />} />
                     </Route>
                 </Route>
