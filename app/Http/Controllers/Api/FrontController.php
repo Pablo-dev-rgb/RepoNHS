@@ -8,8 +8,15 @@ use App\Models\Notice;
 
 class FrontController extends Controller
 {
-    public function notices(Request $request){
-        $data = Notice::get(["id", "title", "description", "hospital_id", "created_at"]);
+    public function notices(){
+        $data = Notice::orderByDesc("created_at")->get();
+        return response()->json($data, 200);
+    }
+
+    //Buscador de Noticia
+    public function search(Request $request){
+        $textBusqueda = $request->text;
+        $data = Notice::where("title", "like", "%" . $textBusqueda . "%")->get();
         return response()->json($data, 200);
     }
 }
