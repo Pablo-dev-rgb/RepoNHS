@@ -9,8 +9,10 @@ use App\Models\Notice;
 class FrontController extends Controller
 {
     public function notices(){
-        $data = Notice::orderByDesc("created_at")->get();
-        return response()->json($data, 200);
+        $notices = Notice::orderByDesc("created_at")->paginate(
+            $perPage = 5, $colum['*'], $pageName = "notices"
+        );
+        return response()->json($notices, 200);
     }
 
     //Buscador de Noticia
