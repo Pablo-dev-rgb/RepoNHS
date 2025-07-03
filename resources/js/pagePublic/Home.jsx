@@ -6,7 +6,7 @@ const Home = () => {
 
     const [notices, setNotices] = useState([])
 
-    const initialFetchUrl = "http://127.0.0.1:8000/api/v1/public/notices"; // Coincide con tu ruta getNoticeAllPublic
+    const initialFetchUrl = "http://127.0.0.1:8000/api/v1/public/notices";
     const [currentFullUrl, setCurrentFullUrl] = useState(initialFetchUrl);
     const [paginationMeta, setPaginationMeta] = useState(null);
 
@@ -56,7 +56,7 @@ const Home = () => {
                     <div className="row mt-5 mb-3 justify-content-center">
                         <div className="col-md-10 mt-3 mb-3">
                             <h3 className="text-center">Noticias</h3>
-                                {/* <div className="row justify-content-center">
+                                <div className="row justify-content-center">
                                     <div className="col-sm-6">
                                         <div className="card-body d-flex flex-column">
                                             <input type="search" placeholder="Buscador" 
@@ -64,7 +64,7 @@ const Home = () => {
                                             />
                                         </div>
                                     </div>
-                                </div> */}
+                                </div>
                                 <div className="card-body">
                                     {
                                         notices.map((notice)=>{
