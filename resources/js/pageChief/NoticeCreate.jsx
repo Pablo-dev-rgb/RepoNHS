@@ -9,9 +9,19 @@ const NoticeCreate = () => {
     const {getRol, getToken} = AuthUser()
     const [title, setTitle] = useState('')
     const [description, setDescription] = useState('')
+    const [urlfoto, setUrlfoto] = useState('')
     const [hospitals, setHospitals] = useState([])
     const [selectHospital, setSelectedHospital] = useState('')
     const navigate = useNavigate()
+
+    const handleInputChange = async(e)=>{
+        let files = e.target.files
+        let reader = new FileReader();
+        reader.readAsDataURL(files[0])
+        reader.onload = (e)=>{
+            setUrlfoto(e.target.result)
+        }
+    }
 
     useEffect(()=>{
         const role = getRol()
@@ -43,6 +53,7 @@ const NoticeCreate = () => {
         await Config.noticeStore(token, {
             title ,
             description,
+            urlfoto,
             hospital_id: selectHospital,
         });
         navigate("/chief/notice");
@@ -69,16 +80,21 @@ const NoticeCreate = () => {
                                     <label htmlFor="description">Descripcion:</label>
                                     <textarea className="form-control" value={description} onChange={(e)=>setDescription(e.target.value)} />
                                 </div>
+                                
+                                 <div className="col-sm-12">
+                                    <label htmlFor="description">Imagen:</label>
+                                    <input className="form-control" type="file" onChange={(e)=>handleInputChange(e)} />
+                                </div>
 
                                 <div className="col-sm-12">
                                     <label>Hospital:</label>
                                     <select className="form-control" value={selectHospital} onChange={(e) => setSelectedHospital(Number(e.target.value))} required>
-                                    {hospitals.map((hospital) => (
-                                        <option key={hospital.id} value={hospital.id}>
-                                            {hospital.name}
-                                        </option>
-                                    ))}
-                                </select>
+                                        {hospitals.map((hospital) => (
+                                            <option key={hospital.id} value={hospital.id}>
+                                                {hospital.name}
+                                            </option>
+                                        ))}
+                                    </select>
                                 </div>
                                 
                                 <div className="btn-group mt-3">

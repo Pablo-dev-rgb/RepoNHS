@@ -12,6 +12,8 @@ class Notice extends Model
     protected $fillable = [
         'title',
         'description',
+        'slug',
+        'urlfoto',
         'hospital_id',
     ];
 

@@ -5,7 +5,6 @@ import axios from "axios";
 const Home = () => {
 
     const [notices, setNotices] = useState([])
-
     const initialFetchUrl = "http://127.0.0.1:8000/api/v1/public/notices";
     const [currentFullUrl, setCurrentFullUrl] = useState(initialFetchUrl);
     const [paginationMeta, setPaginationMeta] = useState(null);
@@ -73,6 +72,7 @@ const Home = () => {
                                                     <div className="card-body d-flex flex-column">
                                                     <div className="mb-3 d-flex justify-content-between align-items-baseline">
                                                         <h5 className="card-title mb-0">{notice.title}</h5>
+                                                        <img src={"/img/notice/" +notice.urlfoto} width={150} height={150} />
                                                         <p className="card-time mb-0">{new Date(notice.created_at).toLocaleDateString()}</p>
                                                     </div>
                                                     <p className="card-text">{notice.description}</p>
