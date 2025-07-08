@@ -10,9 +10,20 @@ const NoticeEdit = () => {
     const {id} = useParams();
     const [title, setTitle] = useState('')
     const [description, setDescription] = useState('')
+    const [urlfoto, setUrlfoto] = useState("foto.jpg")
+    const [file, setFile] = useState("")
     const [hospitals, setHospitals] = useState([])
     const [selectHospital, setSelectedHospital] = useState('')
     const navigate = useNavigate()
+
+    const handleInputChange = async(e)=>{
+        let files = e.target.files
+        let reader = new FileReader();
+        reader.readAsDataURL(files[0])
+        reader.onload = (e)=>{
+            setFile(e.target.result)
+        }
+    }
 
     useEffect(()=>{
         const role = getRol()
@@ -29,6 +40,7 @@ const NoticeEdit = () => {
                 .then(({data})=>{
                     setTitle(data.title || '')
                     setDescription(data.description || '')
+                    setUrlfoto(data.urlfoto || '')
                 })
             };
             getNoticeById();
@@ -60,6 +72,7 @@ const NoticeEdit = () => {
                 {
                     title,
                     description,
+                    file,
                     hospital_id: selectHospital,
                 }
             )
@@ -89,6 +102,12 @@ const NoticeEdit = () => {
                                 <div className="col-sm-12">
                                     <label htmlFor="description">Descripcion:</label>
                                     <textarea className="form-control" value={description} onChange={(e)=>setDescription(e.target.value)} />
+                                </div>
+
+                                <div className="col-sm-12">
+                                    <label>Imagen</label>
+                                    <img src={`/img/notice/${urlfoto}`} width={200} height={200} loading="lazy" className="img-fluid img-thumbnail" />
+                                    <input type="file" className="form-control" onChange={(e)=>handleInputChange(e)} />
                                 </div>
 
                                 <div className="col-sm-12">

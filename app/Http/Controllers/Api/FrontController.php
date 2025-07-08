@@ -18,7 +18,7 @@ class FrontController extends Controller
     //Buscador de Noticia
     public function search(Request $request){
         $textBusqueda = $request->text;
-        $data = Notice::where("title", "like", "%" . $textBusqueda . "%")->get();
+        $data = Notice::where("title", "like", "%" . $textBusqueda . "%")->orderByDesc("created_at")->get();
         // $perPage = 3, // Puedes ajustar esto al número de resultados por página deseado
         // $colum = ['*'],
         // $pageName = "search_results"
