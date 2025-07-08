@@ -4,12 +4,16 @@ import AuthUser from "../pageAuth/AuthUser";
 import { data, Link, useNavigate } from "react-router-dom";
 import Config from "../Config";
 import { Dropdown } from 'react-bootstrap';
+import PaginatorNotice from "../components/PaginatorNotice";
 
 const NoticeAll = () => {
 
     const {getToken} = AuthUser();
     const {getRol} = AuthUser();
     const [notices, setNotices] = useState([])
+    const initialFetchUrl = "http://127.0.0.1:8000/api/v1/chief/notice";
+    const [currentFullUrl, setCurrentFullUrl] = useState(initialFetchUrl);
+    const [paginationMeta, setPaginationMeta] = useState(null);
     const navigate = useNavigate();
 
     useEffect(()=>{
@@ -21,17 +25,40 @@ const NoticeAll = () => {
     })
 
     useEffect(()=>{
-        getNoticeAll()
-    },[])
-
-    const getNoticeAll = async() => {
-        const token = getToken()
-        await Config.getNoticeAll(token)
-        .then(({data})=>{
-            if(data.length > 0){
-                setNotices(data)
+        fetchNotices(currentFullUrl)
+    },[currentFullUrl])
+    
+    const fetchNotices = async (url) => {
+        const Token = getToken()
+        try {
+            let response;
+            if (url === initialFetchUrl) {
+                // Para la pagina inicial
+                response = await Config.getNoticeAll(Token);
+            } else {
+                // Para los cambios de pagina subsiguientes
+                response = await axios.get(Token, url);
             }
-        })
+
+            const data = response.data;
+
+            setNotices(data.data); // La lista real de avisos está en 'data.data'
+            setPaginationMeta({
+                current_page: data.current_page,
+                last_page: data.last_page,
+                next_page_url: data.next_page_url,
+                prev_page_url: data.prev_page_url,
+                links: data.links // Almacena los enlaces para los botones de paginación
+            });
+        } catch (err) {
+            console.error("Error al obtener los avisos:", err);
+        }
+    }
+
+    const handlePageChange = (fullUrl) => {
+        if (fullUrl) {
+            setCurrentFullUrl(fullUrl); // Actualiza la URL para activar el hook useEffect
+        }
     }
 
     const submitDelete = async (id) => {
@@ -66,7 +93,7 @@ const NoticeAll = () => {
                                                      <div className="d-flex justify-content-between align-items-center mt-3">
                                                         <p className="card-text">{notice.description}</p>                                                            
                                                         <Dropdown>
-                                                                <Dropdown.Toggle className=" mb-3 " variant="secondary" id={`dropdown-basic-${notice.id}`}>
+                                                                <Dropdown.Toggle className="ms-2 mb-3 " variant="secondary" id={`dropdown-basic-${notice.id}`}>
                                                                     Opciones
                                                                 </Dropdown.Toggle>
 
@@ -84,6 +111,14 @@ const NoticeAll = () => {
                                 </div>
                             </div>
                         </div>
+                        {
+                            paginationMeta && (
+                                <PaginatorNotice
+                                    paginationMeta={paginationMeta}
+                                    handlePageChange={handlePageChange}
+                                />
+                            )
+                        }
                     </div>
         </div>
     )
