@@ -5,6 +5,7 @@ import { data, Link, useNavigate } from "react-router-dom";
 import Config from "../Config";
 import { Dropdown } from 'react-bootstrap';
 import PaginatorNotice from "../components/PaginatorNotice";
+import axios from "axios";
 
 const NoticeAll = () => {
 
@@ -29,15 +30,21 @@ const NoticeAll = () => {
     },[currentFullUrl])
     
     const fetchNotices = async (url) => {
-        const Token = getToken()
+        const token = getToken()
         try {
             let response;
             if (url === initialFetchUrl) {
                 // Para la pagina inicial
-                response = await Config.getNoticeAll(Token);
+                response = await Config.getNoticeAll(token);
             } else {
                 // Para los cambios de pagina subsiguientes
-                response = await axios.get(Token, url);
+                response = await axios.get(url,
+                    {
+                        headers: {
+                        Authorization: `Bearer ${token}`, 
+                        },
+                    }
+                );
             }
 
             const data = response.data;

@@ -13,12 +13,11 @@ const Navbar = () =>{
     if (token) {
       Config.getLogout(token) 
         .then(response => {
-          console.log(response);
+        //console.log(response);
           getLogout();
         })
         .catch(error => {
           console.error("Logout failed:", error);
-          // Handle logout error (e.g., display a message to the user)
         });
       }
     }

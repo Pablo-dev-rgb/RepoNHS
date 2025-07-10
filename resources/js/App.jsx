@@ -8,6 +8,7 @@ import LayoutPublic from "./layouts/LayoutPublic";
 import Home from "./pagePublic/Home";
 import Login from "./pagePublic/Login";
 import AccesoDenegado from "./pagePublic/AccesoDenegado";
+import NotFound from "./pagePublic/NotFound";
 import Footer from "./components/Footer";
 //protected
 import ProtectedRoutes from "./pageAuth/ProtectedRoutes";
@@ -38,6 +39,7 @@ import TaskAllSM from "./pageServiceManager/TaskAll";
 
 
 
+
 const App = () => {
 
     return(
@@ -48,6 +50,7 @@ const App = () => {
                 <Route path="/" element={<LayoutPublic />} >
                     <Route path="/login" element={<Login />} />
                     <Route index element={<Home />} />
+                    <Route path="/*" element={<NotFound />} />
                     <Route path="/denegado" element={<AccesoDenegado />} />
                 </Route>
                 <Route element={<ProtectedRoutes />}>

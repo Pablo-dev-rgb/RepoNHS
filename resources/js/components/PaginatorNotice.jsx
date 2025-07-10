@@ -34,7 +34,7 @@ const paginatorNotice = ({ paginationMeta, handlePageChange }) => {
                         &laquo;
                     </button>
                 </li>
-
+                
                 {/* Números de página en el rango */}
                 {pageNumbers.map((pageNumber) => (
                     <li key={pageNumber} style={{ margin: '0 5px' }}>
