@@ -10,7 +10,7 @@ class FrontController extends Controller
 {
     public function notices(){
         $notices = Notice::orderByDesc("created_at")->paginate(
-            $perPage = 2, $colum = ['*'], $pageName = "notices"
+            $perPage = 3, $colum = ['*'], $pageName = "notices"
         );
         return response()->json($notices, 200);
     }
