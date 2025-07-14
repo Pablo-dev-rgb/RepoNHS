@@ -28,7 +28,7 @@ const Navbar = () =>{
         if(role=="Admin"){
             return(
                 <Dropdown>
-                    <Dropdown.Toggle variant="secondary" id="dropdown-basic">
+                    <Dropdown.Toggle id="dropdown-basic">
                         Menu
                     </Dropdown.Toggle>
                     <Dropdown.Menu>
@@ -40,7 +40,7 @@ const Navbar = () =>{
         }else if(role=="Chief"){
             return(
                 <Dropdown>
-                    <Dropdown.Toggle variant="secondary" id="dropdown-basic">
+                    <Dropdown.Toggle id="dropdown-basic">
                        Menu
                     </Dropdown.Toggle>
                     <Dropdown.Menu>
@@ -52,7 +52,7 @@ const Navbar = () =>{
         }else if(role=="ServiceManager"){
             return(
                 <Dropdown>
-                    <Dropdown.Toggle variant="secondary" id="dropdown-basic">
+                    <Dropdown.Toggle id="dropdown-basic">
                        Menu
                     </Dropdown.Toggle>
                     <Dropdown.Menu>
@@ -71,29 +71,30 @@ const Navbar = () =>{
                     <a className="nav-link text-white">{user.name}</a>
                 </li>
                 <li className="nav-item">
-                    <a className="nav-link text-white" href="#" onClick={logoutUser}>Logout</a>
+                    <a className="nav-link text-white" href="#" onClick={logoutUser}>
+                    | Cerrar sesión
+                    </a>
                 </li>
                 </>
             )
         }else{
             return(
                 <li className="nav-item">
-                    <a className="nav-link text-white" href="/login">Login</a>
+                    <a className="nav-link text-white" href="/login">Iniciar sesión</a>
                 </li>
             )
         }
     }
     
     return(
-        <nav className="navbar navbar-expand-lg bg-secondary shadow-sm">
-            <div className="container">
+        <nav className="navbar navbar-expand-lg shadow-sm">
                 <button className="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
                 </button>
                 <div className="collapse navbar-collapse" id="navbarNav">
                 <ul className="navbar-nav">
                     <li className="nav-item">
-                    <a className="nav-link active text-white" aria-current="page" href="/">Home</a>
+                    <a className="nav-link active text-white" aria-current="page" href="/">Inicio</a>
                     </li>
                     {/* <li className="nav-item">
                         <a className="nav-link text-white" href= >Administracion</a>
@@ -106,7 +107,6 @@ const Navbar = () =>{
                 {renderLinks()}
                 </ul>
                 </div>
-            </div>
         </nav>
     )
 }

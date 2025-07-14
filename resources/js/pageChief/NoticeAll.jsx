@@ -79,10 +79,10 @@ const NoticeAll = () => {
     }
 
     return (
-        <div className="container bg-light">
+        <div className="container">
                     <div className="row mt-5 mb-5 justify-content-center">
                         <div className="col-md-8 mt-3 mb-3">
-                            <h3 className="text-center">Lista de noticias</h3>
+                            <h1 className="text-center">Lista de noticias</h1>
                             <Link to={`create`} className="btn btn-secondary">Crear notice</Link>
                             <div className="mt-3 mb-3" style={{width: 'auto'}}>
                                 <div className="row justify-content-center">

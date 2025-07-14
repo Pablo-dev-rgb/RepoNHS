@@ -39,12 +39,12 @@ const Login = ()=>{
 
     return(
 
-        <div className="container">
+
             <div className="row justify-content-center">
                 <div className="col-sm-4">
                     <div className="card mt-5 mb-5">
                         <div className="card-body">
-                            <h1 className="text-center fw-bolder">Login</h1>
+                            <h1 className="text-center fw-bolder">Inicio de sesión</h1>
 
                             <input type="email" className="form-control mt-3" placeholder="Email:" value={email} 
                             onChange={(e)=>setEmail(e.target.value)} required/>
@@ -59,7 +59,7 @@ const Login = ()=>{
                     </div>
                 </div>
             </div>
-        </div>
+
 
     )
 }

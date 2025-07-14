@@ -52,10 +52,10 @@ const Home = () => {
     }
 
     return(
-        <div className="container bg-light">
+        <div className="container">
             <div className="row mt-5 mb-3 justify-content-center">
                 <div className="col-md-8 mt-3 mb-3">
-                    <h3 className="text-center">Noticias</h3>
+                    <h1 className="text-center">Noticias</h1>
                     <div className="row justify-content-center">
                         <div className="col-sm-6">
                             <div className="card-body d-flex flex-column">

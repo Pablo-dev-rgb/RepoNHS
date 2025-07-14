@@ -1,0 +1,14 @@
+/*navabr*/
+.navbar{
+    background-color: #30A1E5;
+    padding: 8px;
+}
+/*Color bg para dropdown*/
+#dropdown-basic {
+  background-color:	#30A1E5;
+  border-color: transparent;
+}
+
+.footer{
+    background-color: #30A1E5;
+}

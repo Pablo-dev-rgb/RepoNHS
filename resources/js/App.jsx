@@ -1,8 +1,11 @@
 import React from "react";
-import '../css/app.css';
 import ReactDOM from 'react-dom/client';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+//CSS
+import '../css/app.css';
+import '../css/Components/navbar.css';
+import '../css/Public/home.css';
 //public
 import LayoutPublic from "./layouts/LayoutPublic";
 import Home from "./pagePublic/Home";
@@ -34,11 +37,6 @@ import TaskEdit from "./pageChief/TaskEdit";
 import LayoutServiceManager from "./layouts/LayoutServiceManager";
 import PanelServiceManager from "./pageServiceManager/PanelServiceManager";
 import TaskAllSM from "./pageServiceManager/TaskAll";
-
-
-
-
-
 
 const App = () => {
 

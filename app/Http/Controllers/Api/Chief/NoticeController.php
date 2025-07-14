@@ -12,7 +12,7 @@ class NoticeController extends Controller
     //Mostrar lista de noticias
     public function index(){
         $notices = Notice::orderByDesc("created_at")->paginate(
-            $perPage = 2, $colum = ['*'], $pageName = "notice"
+            $perPage = 3, $colum = ['*'], $pageName = "notice"
         );
         return response()->json($notices, 200);
     }

@@ -27,7 +27,8 @@ const paginatorNotice = ({ paginationMeta, handlePageChange }) => {
                         onClick={() => handlePageChange(paginationMeta.prev_page_url)}
                         disabled={!paginationMeta.prev_page_url}
                         style={{
-                            border: '1px solid #ccc', padding: '8px 12px', borderRadius: '4px',
+                            border: '1px', padding: '8px 12px', borderRadius: '10px',
+                            backgroundColor:'#4F7791',
                             cursor: paginationMeta.prev_page_url ? 'pointer' : 'not-allowed'
                         }}
                     >
@@ -42,8 +43,8 @@ const paginatorNotice = ({ paginationMeta, handlePageChange }) => {
                             onClick={() => handlePageChange(paginationMeta.links.find(link => parseInt(link.label) === pageNumber)?.url)}
                             style={{
                                 fontWeight: current_page === pageNumber ? 'bold' : 'normal',
-                                backgroundColor: current_page === pageNumber ? '#e0e0e0' : 'transparent',
-                                border: '1px solid #ccc', padding: '8px 12px', borderRadius: '4px',
+                                backgroundColor: current_page === pageNumber ? '	#30A1E5' : '#4F7791',
+                                border: '1px', padding: '8px 12px', borderRadius: '10px',
                                 cursor: 'pointer'
                             }}
                         >
@@ -58,7 +59,8 @@ const paginatorNotice = ({ paginationMeta, handlePageChange }) => {
                         onClick={() => handlePageChange(paginationMeta.next_page_url)}
                         disabled={!paginationMeta.next_page_url}
                         style={{
-                            border: '1px solid #ccc', padding: '8px 12px', borderRadius: '4px',
+                            border: '1px', padding: '8px 12px', borderRadius: '10px',
+                            backgroundColor:'#4F7791',
                             cursor: paginationMeta.next_page_url ? 'pointer' : 'not-allowed'
                         }}
                     >
