@@ -89,29 +89,35 @@ const NoticeAll = () => {
                                     {
                                         notices.map((notice)=>{
                                             return(
-                                                <div className="card mt-3 mb-3 border-bottom" key={notice.id}>
-                                                    <div className="card-body d-flex flex-column">
-                                                        <img src={"/img/notice/" +notice.urlfoto} width={200} height={200} className="d-block mx-auto mb-3" />
-                                                    <div className="d-flex justify-content-between align-items-baseline">
-                                                        <h5 className="card-title mb-0">{notice.title}</h5>                                                      
-                                                        <p className="card-time mb-0">{new Date(notice.created_at).toLocaleDateString()}</p>
-                                                    </div>
-                                                    
-                                                     <div className="d-flex justify-content-between align-items-center mt-3">
-                                                        <p className="card-text">{notice.description}</p>                                                            
-                                                        <Dropdown>
-                                                                <Dropdown.Toggle className="ms-2 mb-3 " variant="secondary" id={`dropdown-basic-${notice.id}`}>
-                                                                    Opciones
-                                                                </Dropdown.Toggle>
-
-                                                                <Dropdown.Menu>
-                                                                    <Dropdown.Item as={Link} to={`edit/${notice.id}`}>Editar</Dropdown.Item>
-                                                                    <Dropdown.Item  onClick={()=>{submitDelete(notice.id)}}>Eliminar</Dropdown.Item>
-                                                                </Dropdown.Menu>
-                                                            </Dropdown>
+                                                <div className="d-flex" key={notice.id}>
+                                                    <div className="mt-3 mb-3 w-100">
+                                                        <div className="noticeCard card-body d-flex flex-wrap">
+                                                            <div className="col-md-4">
+                                                                <img src={"/img/notice/" + notice.urlfoto} 
+                                                                className="d-block mx-auto img-fluid w-100 imgNotice" />
+                                                            </div>
+                                                            <div className="textNotice col-md-8 text-white d-flex flex-column">
+                                                                <div className="mb-3 d-flex justify-content-between align-items-baseline">
+                                                                    <h5 className="card-title mb-0">{notice.title}</h5>
+                                                                    <p className="card-time mb-0">{new Date(notice.created_at).toLocaleDateString()}</p>
+                                                                </div>
+                                                                <div className="d-flex justify-content-between align-items-center mt-auto">
+                                                                    <p className="card-text description-notice">{notice.description}</p>                                                            
+                                                                    <Dropdown>
+                                                                        <Dropdown.Toggle className="ms-2 mb-3 opcio" variant="secondary" id={`dropdown-basic-${notice.id}`}>
+                                                                            Opciones
+                                                                        </Dropdown.Toggle>
+                                                                        <Dropdown.Menu>
+                                                                            <Dropdown.Item as={Link} to={`edit/${notice.id}`}>Editar</Dropdown.Item>
+                                                                            <Dropdown.Item  onClick={()=>{submitDelete(notice.id)}}>Eliminar</Dropdown.Item>
+                                                                        </Dropdown.Menu>
+                                                                    </Dropdown>
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
+
                                             )
                                         })
                                     }

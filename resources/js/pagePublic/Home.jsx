@@ -55,7 +55,7 @@ const Home = () => {
         <div className="container">
             <div className="row mt-5 mb-3 justify-content-center">
                 <div className="col-md-8 mt-3 mb-3">
-                    <h1 className="text-center">Noticias</h1>
+                    <h1 className="text-center text-white">Noticias</h1>
                     <div className="row justify-content-center">
                         <div className="col-sm-6">
                             <div className="card-body d-flex flex-column">
@@ -70,14 +70,19 @@ const Home = () => {
                         notices.map((notice)=>{
                             return(
                                 <div className="d-flex" key={notice.id}>
-                                    <div className="card w-100 mt-3 mb-3 border-bottom">
-                                        <div className="card-body d-flex flex-column">
-                                            <img src={"/img/notice/" +notice.urlfoto} width={250} height={200} className="d-block mx-auto mb-3" />
-                                        <div className="mb-3 d-flex justify-content-between align-items-baseline">
-                                            <h5 className="card-title mb-0">{notice.title}</h5>                                                      
-                                            <p className="card-time mb-0">{new Date(notice.created_at).toLocaleDateString()}</p>
-                                        </div>                                                    
-                                        <p className="card-text">{notice.description}</p>
+                                    <div className="mt-3 mb-3 w-100">
+                                        <div className="noticeCard card-body d-flex flex-wrap">
+                                            <div className="col-md-4">
+                                                <img src={"/img/notice/" + notice.urlfoto}
+                                                className="d-block mx-auto img-fluid w-100 imgNotice" />
+                                            </div>
+                                            <div className="textNotice col-md-8 text-white d-flex flex-column">
+                                                <div className="mb-3 d-flex justify-content-between align-items-baseline">
+                                                    <h5 className="card-title mb-0">{notice.title}</h5>
+                                                    <p className="card-time mb-0">{new Date(notice.created_at).toLocaleDateString()}</p>
+                                                </div>
+                                                <p className="card-text description-notice mt-auto">{notice.description}</p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

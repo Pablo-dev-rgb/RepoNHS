@@ -28,7 +28,7 @@ const paginatorNotice = ({ paginationMeta, handlePageChange }) => {
                         disabled={!paginationMeta.prev_page_url}
                         style={{
                             border: '1px', padding: '8px 12px', borderRadius: '10px',
-                            backgroundColor:'#4F7791',
+                            backgroundColor:'#468EBB',
                             cursor: paginationMeta.prev_page_url ? 'pointer' : 'not-allowed'
                         }}
                     >
@@ -43,7 +43,7 @@ const paginatorNotice = ({ paginationMeta, handlePageChange }) => {
                             onClick={() => handlePageChange(paginationMeta.links.find(link => parseInt(link.label) === pageNumber)?.url)}
                             style={{
                                 fontWeight: current_page === pageNumber ? 'bold' : 'normal',
-                                backgroundColor: current_page === pageNumber ? '	#30A1E5' : '#4F7791',
+                                backgroundColor: current_page === pageNumber ? '	#30A1E5' : '#468EBB',
                                 border: '1px', padding: '8px 12px', borderRadius: '10px',
                                 cursor: 'pointer'
                             }}
@@ -60,7 +60,7 @@ const paginatorNotice = ({ paginationMeta, handlePageChange }) => {
                         disabled={!paginationMeta.next_page_url}
                         style={{
                             border: '1px', padding: '8px 12px', borderRadius: '10px',
-                            backgroundColor:'#4F7791',
+                            backgroundColor:'#468EBB',
                             cursor: paginationMeta.next_page_url ? 'pointer' : 'not-allowed'
                         }}
                     >

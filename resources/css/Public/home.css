@@ -1,3 +1,37 @@
 .container{
-    background-color: #f8f9fa;
+    background-color: #4F7791;
+}
+
+.noticeCard{
+    background-color: #34393C;
+    border-radius: 10px;
+}
+
+.textNotice{
+    padding: 15px;
+}
+
+.imgNotice {
+    /* Asegura que la imagen siempre cubra el 100% del ancho y alto de su contenedor */
+    width: 100%;
+    height: 100%;
+    /* Ajusta cómo la imagen se adapta a su contenedor, recortando si es necesario para cubrir el área */
+    object-fit: cover;
+}
+
+/* Estilos para la columna que contiene la imagen */
+.col-md-4 {
+    min-height: 200px;
+    /* Opcional: Si quieres que la imagen se centre dentro de este espacio si no lo llena completamente (aunque object-fit: cover ya lo llena) */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.description-notice{
+    max-width: 490px;
+    display: -webkit-box; /* Necesario para -webkit-line-clamp */
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical; /* Necesario para -webkit-line-clamp */
+    overflow: hidden; /* Oculta el texto que se desborda */
+    text-overflow: ellipsis;
 }
