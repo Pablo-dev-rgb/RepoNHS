@@ -38,16 +38,15 @@ const Navbar = () =>{
                 </Dropdown>
             )
         }else if(role=="Chief"){
-            return(
-                <Dropdown>
-                    <Dropdown.Toggle id="dropdown-basic">
-                       Menu
-                    </Dropdown.Toggle>
-                    <Dropdown.Menu>
-                        <Dropdown.Item href="/chief/notice">Noticias</Dropdown.Item>
-                        <Dropdown.Item href="/chief/task">Tareas</Dropdown.Item>
-                    </Dropdown.Menu>
-                </Dropdown>
+            return(   
+                <>          
+                    <li className="nav-item">
+                        <a className="nav-link text-white" href="/chief/notice">Noticias</a>
+                    </li>
+                    <li className="nav-item">
+                        <a className="nav-link text-white" href="/chief/task">Tareas</a>
+                    </li>
+                </>
             )
         }else if(role=="ServiceManager"){
             return(
@@ -94,14 +93,11 @@ const Navbar = () =>{
                 <div className="collapse navbar-collapse" id="navbarNav">
                 <ul className="navbar-nav">
                     <li className="nav-item">
-                    <a className="nav-link active text-white" aria-current="page" href="/">Inicio</a>
+                        <a className="nav-link active text-white" aria-current="page" href="/">Inicio</a>
                     </li>
-                    {/* <li className="nav-item">
-                        <a className="nav-link text-white" href= >Administracion</a>
-                    </li> */}
-                    <li className="nav-item">
+                    <ul className="navbar-nav">
                         {renderMenu()}
-                    </li>
+                    </ul>
                 </ul>
                 <ul className="navbar-nav ms-auto">
                 {renderLinks()}

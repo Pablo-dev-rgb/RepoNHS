@@ -54,7 +54,7 @@ const Home = () => {
     return(
         <div className="container">
             <div className="row mt-5 mb-3 justify-content-center">
-                <div className="col-md-8 mt-3 mb-3">
+                <div className="col-md-10 mt-3 mb-3">
                     <h1 className="text-center text-white">Noticias</h1>
                     <div className="row justify-content-center">
                         <div className="col-sm-6">
@@ -77,11 +77,12 @@ const Home = () => {
                                                 className="d-block mx-auto img-fluid w-100 imgNotice" />
                                             </div>
                                             <div className="textNotice col-md-8 text-white d-flex flex-column">
-                                                <div className="mb-3 d-flex justify-content-between align-items-baseline">
-                                                    <h5 className="card-title mb-0">{notice.title}</h5>
-                                                    <p className="card-time mb-0">{new Date(notice.created_at).toLocaleDateString()}</p>
+                                                <h3 className="card-title mt-4" style={{maxWidth: '350px'}}>{notice.title}</h3>
+                                                <div className="d-flex justify-content-between align-items-baseline mt-4">
+                                                    <p className="card-text description-notice">{notice.description}</p>
+                                                    <p className="card-time mt-auto">{new Date(notice.created_at).toLocaleDateString()}</p>
                                                 </div>
-                                                <p className="card-text description-notice mt-auto">{notice.description}</p>
+                                                
                                             </div>
                                         </div>
                                     </div>

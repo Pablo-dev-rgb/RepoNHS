@@ -81,9 +81,9 @@ const NoticeAll = () => {
     return (
         <div className="container">
                     <div className="row mt-5 mb-5 justify-content-center">
-                        <div className="col-md-8 mt-3 mb-3">
-                            <h1 className="text-center">Lista de noticias</h1>
-                            <Link to={`create`} className="btn btn-secondary">Crear notice</Link>
+                        <div className="col-md-10 mt-3 mb-3">
+                            <h1 className="text-center text-white">Lista de noticias</h1>
+                            <Link to={`create`} className="btn text-white btnblue">Crear notice</Link>
                             <div className="mt-3 mb-3" style={{width: 'auto'}}>
                                 <div className="row justify-content-center">
                                     {
@@ -98,18 +98,18 @@ const NoticeAll = () => {
                                                             </div>
                                                             <div className="textNotice col-md-8 text-white d-flex flex-column">
                                                                 <div className="mb-3 d-flex justify-content-between align-items-baseline">
-                                                                    <h5 className="card-title mb-0">{notice.title}</h5>
-                                                                    <p className="card-time mb-0">{new Date(notice.created_at).toLocaleDateString()}</p>
+                                                                    <h3 className="card-title mt-4" style={{maxWidth: '350px'}}>{notice.title}</h3>
+                                                                    <p className="card-time mt-auto">{new Date(notice.created_at).toLocaleDateString()}</p>
                                                                 </div>
-                                                                <div className="d-flex justify-content-between align-items-center mt-auto">
+                                                                <div className="d-flex justify-content-between align-items-center mt-4">
                                                                     <p className="card-text description-notice">{notice.description}</p>                                                            
                                                                     <Dropdown>
-                                                                        <Dropdown.Toggle className="ms-2 mb-3 opcio" variant="secondary" id={`dropdown-basic-${notice.id}`}>
+                                                                        <Dropdown.Toggle className="btn btnblue" id={`dropdown-basic-${notice.id}`}>
                                                                             Opciones
                                                                         </Dropdown.Toggle>
                                                                         <Dropdown.Menu>
                                                                             <Dropdown.Item as={Link} to={`edit/${notice.id}`}>Editar</Dropdown.Item>
-                                                                            <Dropdown.Item  onClick={()=>{submitDelete(notice.id)}}>Eliminar</Dropdown.Item>
+                                                                            <Dropdown.Item  className='text-danger' onClick={()=>{submitDelete(notice.id)}}>Eliminar</Dropdown.Item>
                                                                         </Dropdown.Menu>
                                                                     </Dropdown>
                                                                 </div>

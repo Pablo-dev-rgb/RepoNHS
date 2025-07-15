@@ -31,3 +31,8 @@ html, body, #root { /* Si tu app React se monta en un div con id="app" (muy com√
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+.btnblue{
+  background-color: #30A1E5;
+  border: none;
+}
