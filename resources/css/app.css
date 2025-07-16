@@ -1,14 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Ancizar+Serif:ital,wght@0,300..900;1,300..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 body{
-    background-color: #4F7791 !important;
+    background-color: #485B66 !important;
       font-family: "Inter", sans-serif !important;
       font-optical-sizing: auto;
       font-weight: normal;
       font-style: normal;
 }
 
-html, body, #root { /* Si tu app React se monta en un div con id="app" (muy común en Laravel) */
+html, body, #root {
   height: 100%;
   margin: 0;
   padding: 0;
@@ -17,7 +17,7 @@ html, body, #root { /* Si tu app React se monta en un div con id="app" (muy com�
 .App-Container { /* Clase para el div más externo de tu componente App.jsx */
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* Asegura que el contenedor ocupe al menos el 100% de la altura de la ventana */
+  min-height: 100vh;
 }
 
 .main-content-wrapper { /* Clase para el div que envuelve el contenido principal variable */
@@ -26,13 +26,23 @@ html, body, #root { /* Si tu app React se monta en un div con id="app" (muy com�
 
 /*CSS tabla tareas campo descripcion*/
 .description-cell {
-  max-width: 490px; /* Prueba con un valor más grande, como 600px, 800px, o incluso 100% si lo permite el layout */
+  max-width: 490px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-.btnblue{
-  background-color: #30A1E5;
-  border: none;
-}
+.btnblue {
+    background-color: #468EBB; /* Color de fondo inicial*/
+    color: white; 
+    border: none; /* Sin borde */
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease; /* Suaviza la transición del color */
+  }
+
+  /* Estilo cuando el cursor está sobre el botón */
+  .btnblue:hover {
+    background-color: #30A1E5; /* Nuevo color*/
+  }

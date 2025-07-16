@@ -6,6 +6,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import '../css/app.css';
 import '../css/Components/navbar.css';
 import '../css/Public/home.css';
+import '../css/Notice.css'
 //public
 import LayoutPublic from "./layouts/LayoutPublic";
 import Home from "./pagePublic/Home";

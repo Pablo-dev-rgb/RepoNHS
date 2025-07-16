@@ -83,54 +83,56 @@ const NoticeEdit = () => {
     }
 
     return (
-        <div className="container bg-light">
-            <div className="row justify-content-center mt-5 mb-5">
-                 <div className="col-sm-9 mt-3">
-                    <h1 className="text-center">Editar noticia</h1>
-                </div>
-                <div className="col-sm-6 mt-3 mb-3">
-                    <div className="card">
-                        <div className="card-header">EDITAR NOTICIA</div>
-                            <div className="card-body">
-                                 <form onSubmit={submitUpdate}>
+        <div className="row justify-content-center mt-5 mb-5">
+            <div className="col-sm-9 mt-3">
+                <h1 className="text-center text-white">Editar noticia</h1>
+            </div>
+            <div className="col-sm-6 mt-3 mb-3">
+                <div className="card cardEdit">
+                    <div className="card-header">EDITAR NOTICIA</div>
+                        <div className="card-body">
+                            <form onSubmit={submitUpdate}>
 
                                 <div className="col-sm-12">
                                     <label htmlFor="title">Titulo:</label>
-                                    <input type="text" className="form-control" value={title} onChange={(e)=>setTitle(e.target.value)} />
+                                    <input type="text" className="form-control mt-1 mb-2" value={title} onChange={(e)=>setTitle(e.target.value)} />
                                 </div>
 
                                 <div className="col-sm-12">
                                     <label htmlFor="description">Descripcion:</label>
-                                    <textarea className="form-control" value={description} onChange={(e)=>setDescription(e.target.value)} />
+                                    <textarea className="form-control mt-1 mb-2" value={description} onChange={(e)=>setDescription(e.target.value)} />
                                 </div>
 
-                                <div className="col-sm-12">
-                                    <label>Imagen</label>
-                                    <img src={`/img/notice/${urlfoto}`} width={200} height={200} loading="lazy" className="img-fluid img-thumbnail" />
-                                    <input type="file" className="form-control" onChange={(e)=>handleInputChange(e)} />
+                                <div className="col-sm-11 d-flex justify-content-between align-items-center">
+                                    <div class="d-flex flex-column mb-auto">
+                                        <label htmlFor="description">Imagen:</label>
+                                        <input className="form-control mt-1 mb-2" type="file" onChange={(e)=>handleInputChange(e)} />
+                                    </div>
+                                    <img src={`/img/notice/${urlfoto}`} width={200} height={200} loading="lazy" className="img-fluid img-thumbnail mt-2 mb-2" />
                                 </div>
 
                                 <div className="col-sm-12">
                                     <label>Hospital:</label>
                                     <select className="form-control" value={selectHospital} onChange={(e) => setSelectedHospital(Number(e.target.value))} required>
-                                    {hospitals.map((hospital) => (
-                                        <option key={hospital.id} value={hospital.id}>
-                                            {hospital.name}
-                                        </option>
-                                    ))}
+                                    {
+                                        hospitals.map((hospital) => (
+                                            <option key={hospital.id} value={hospital.id}>
+                                                {hospital.name}
+                                            </option>
+                                        ))
+                                    }
                                 </select>
                                 </div>
                                 
-                                <div className="btn-group mt-3">
-                                    <Link to={-1} className="btn btn-secondary">Volver</Link>
-                                    <button type="submit" className="btn btn-primary">Guardar</button>
+                                <div className="mt-3 d-flex justify-content-end">
+                                    <Link to={-1} className="btn btn-secondary me-3">Volver</Link>
+                                    <button type="submit" className="btn btnblue">Guardar</button>
                                 </div>
                             </form>
-                            </div>
                         </div>
+                    </div>
                 </div>
             </div>
-        </div>
     )
 }
 

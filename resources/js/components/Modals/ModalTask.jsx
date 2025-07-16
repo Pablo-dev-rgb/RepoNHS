@@ -13,7 +13,7 @@ function ModalTask({ show, onHide, taskData }) {
                 <p>Descripción: {taskData.description}</p>
                 <p style={{ display: 'flex', justifyContent: 'space-between' }}>
                     <span>Completado: {taskData.completed ? 'Sí' : 'No'}</span>
-                    <span>{new Date(taskData.created_at).toLocaleDateString()}</span>
+                    <span>Asignado en: {new Date(taskData.created_at).toLocaleDateString()}</span>
                 </p>
             </>
             ) : (

@@ -20,13 +20,14 @@ const paginatorNotice = ({ paginationMeta, handlePageChange }) => {
 
     return(
         <nav>
-            <ul style={{ listStyle: 'none', padding: 0, display: 'flex', justifyContent: 'center', alignItems: 'center', paddingBottom: '20px' }}>
+            <ul style={{ listStyle: 'none', padding: 0, display: 'flex', justifyContent: 'center', alignItems: 'center', paddingBottom: '20px'}}>
                 {/* Botón "Anterior" */}
                 <li style={{ margin: '0 5px' }}>
                     <button
                         onClick={() => handlePageChange(paginationMeta.prev_page_url)}
                         disabled={!paginationMeta.prev_page_url}
                         style={{
+                            color: 'white', 
                             border: '1px', padding: '8px 12px', borderRadius: '10px',
                             backgroundColor:'#468EBB',
                             cursor: paginationMeta.prev_page_url ? 'pointer' : 'not-allowed'
@@ -42,6 +43,7 @@ const paginatorNotice = ({ paginationMeta, handlePageChange }) => {
                         <button
                             onClick={() => handlePageChange(paginationMeta.links.find(link => parseInt(link.label) === pageNumber)?.url)}
                             style={{
+                                color: 'white',
                                 fontWeight: current_page === pageNumber ? 'bold' : 'normal',
                                 backgroundColor: current_page === pageNumber ? '	#30A1E5' : '#468EBB',
                                 border: '1px', padding: '8px 12px', borderRadius: '10px',
@@ -59,6 +61,7 @@ const paginatorNotice = ({ paginationMeta, handlePageChange }) => {
                         onClick={() => handlePageChange(paginationMeta.next_page_url)}
                         disabled={!paginationMeta.next_page_url}
                         style={{
+                            color: 'white',
                             border: '1px', padding: '8px 12px', borderRadius: '10px',
                             backgroundColor:'#468EBB',
                             cursor: paginationMeta.next_page_url ? 'pointer' : 'not-allowed'

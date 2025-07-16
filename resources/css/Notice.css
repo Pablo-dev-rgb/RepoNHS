@@ -1,0 +1,15 @@
+.cardCreate{
+    background-color: #34393C;
+    color: white;
+    border: none;
+}
+
+.card-header{
+    background-color: #468EBB;
+}
+
+.cardEdit{
+    background-color: #34393C;
+    color: white;
+    border: none;
+}

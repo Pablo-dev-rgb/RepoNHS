@@ -57,7 +57,7 @@ const Home = () => {
                 <div className="col-md-10 mt-3 mb-3">
                     <h1 className="text-center text-white">Noticias</h1>
                     <div className="row justify-content-center">
-                        <div className="col-sm-6">
+                        <div className="col-sm-6 mb-4">
                             <div className="card-body d-flex flex-column">
                                 <input type="search" placeholder="Buscador" 
                                 onChange={(e)=>search(e.target.value)} className="form-control rounded-pill" 

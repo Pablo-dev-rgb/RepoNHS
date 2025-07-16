@@ -27,15 +27,14 @@ const Navbar = () =>{
 
         if(role=="Admin"){
             return(
-                <Dropdown>
-                    <Dropdown.Toggle id="dropdown-basic">
-                        Menu
-                    </Dropdown.Toggle>
-                    <Dropdown.Menu>
-                        <Dropdown.Item href="/admin/user">Usuario</Dropdown.Item>
-                        <Dropdown.Item href="/admin/service">Servicio</Dropdown.Item>
-                    </Dropdown.Menu>
-                </Dropdown>
+                <>          
+                    <li className="nav-item">
+                        <a className="nav-link text-white" href="/admin/user">Usuario</a>
+                    </li>
+                    <li className="nav-item">
+                        <a className="nav-link text-white" href="/admin/service">Servicio</a>
+                    </li>
+                </>
             )
         }else if(role=="Chief"){
             return(   
@@ -50,14 +49,11 @@ const Navbar = () =>{
             )
         }else if(role=="ServiceManager"){
             return(
-                <Dropdown>
-                    <Dropdown.Toggle id="dropdown-basic">
-                       Menu
-                    </Dropdown.Toggle>
-                    <Dropdown.Menu>
-                        <Dropdown.Item href="/servicemanager/task">Tareas</Dropdown.Item>
-                    </Dropdown.Menu>
-                </Dropdown>
+                <>          
+                    <li className="nav-item">
+                        <a className="nav-link text-white" href="/servicemanager/task">Tareas</a>
+                    </li>
+                </>
             )
         }
     }

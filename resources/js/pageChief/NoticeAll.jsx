@@ -6,6 +6,7 @@ import Config from "../Config";
 import { Dropdown } from 'react-bootstrap';
 import PaginatorNotice from "../components/PaginatorNotice";
 import axios from "axios";
+import ModalDeleteNotice from "../components/Modals/ModalDeleteNotice";
 
 const NoticeAll = () => {
 
@@ -15,6 +16,9 @@ const NoticeAll = () => {
     const initialFetchUrl = "http://127.0.0.1:8000/api/v1/chief/notice";
     const [currentFullUrl, setCurrentFullUrl] = useState(initialFetchUrl);
     const [paginationMeta, setPaginationMeta] = useState(null);
+
+    const [showDeleteConfirmModal, setShowDeleteConfirmModal] = useState(false);
+    const [noticeIdToDelete, setNoticeIdToDelete] = useState(null); 
     const navigate = useNavigate();
 
     useEffect(()=>{
@@ -68,13 +72,25 @@ const NoticeAll = () => {
         }
     }
 
-    const submitDelete = async (id) => {
-        const token = getToken()
+    const handleOpenDetailModal = (noticeId) => {
+        setNoticeIdToDelete(noticeId);
+        setShowDeleteConfirmModal(true);
+    };
 
-        const isDelete = window.confirm("¿Desea borrar la noticia?")
-        if(isDelete){
-            await Config.noticeDelete(token, id)
-            getNoticeAll()
+    const handleCloseDeleteModal = () => {
+        setShowDeleteConfirmModal(false);
+        setNoticeIdToDelete(null);
+    };
+
+
+    const submitDelete = async (id) => {
+        const token = getToken();
+        try {
+            await Config.noticeDelete(token, id);
+            fetchNotices(currentFullUrl);
+            handleCloseDeleteModal();
+        } catch (error) {
+            console.error("Error al borrar la noticia:", error);
         }
     }
 
@@ -109,7 +125,7 @@ const NoticeAll = () => {
                                                                         </Dropdown.Toggle>
                                                                         <Dropdown.Menu>
                                                                             <Dropdown.Item as={Link} to={`edit/${notice.id}`}>Editar</Dropdown.Item>
-                                                                            <Dropdown.Item  className='text-danger' onClick={()=>{submitDelete(notice.id)}}>Eliminar</Dropdown.Item>
+                                                                            <Dropdown.Item  className='text-danger' onClick={()=>{handleOpenDetailModal(notice.id)}}>Eliminar</Dropdown.Item>
                                                                         </Dropdown.Menu>
                                                                     </Dropdown>
                                                                 </div>
@@ -133,6 +149,12 @@ const NoticeAll = () => {
                             )
                         }
                     </div>
+                    <ModalDeleteNotice
+                        show={showDeleteConfirmModal}
+                        onHide={handleCloseDeleteModal}
+                        noticeId={noticeIdToDelete} // Pasa el ID de la noticia a eliminar
+                        onConfirm={submitDelete} // Pasa la función que se ejecutará al confirmar
+                    />
         </div>
     )
 }
