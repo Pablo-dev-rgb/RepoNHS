@@ -1,11 +1,11 @@
 .container{
-    background-color: #485B66;
+    background-color: #272E33;
 }
 
 .noticeCard{
     background-color: #34393C;
     border-radius: 10px;
-    max-height: 250px; 
+    max-height: 270px; 
     overflow: hidden;
 }
 
@@ -23,7 +23,10 @@
     display: flex;
     flex-direction: column;
     height: 100%; 
-    padding: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 15px;
+
 }
 
 .imgNotice {

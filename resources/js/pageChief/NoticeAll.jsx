@@ -114,10 +114,10 @@ const NoticeAll = () => {
                                                             </div>
                                                             <div className="textNotice col-md-8 text-white d-flex flex-column">
                                                                 <div className="mb-3 d-flex justify-content-between align-items-baseline">
-                                                                    <h3 className="card-title mt-4" style={{maxWidth: '400px'}}>{notice.title}</h3>
+                                                                    <h3 className="card-title mt-4" style={{maxWidth: '460px'}}>{notice.title}</h3>
                                                                     <p className="card-time mt-auto">{new Date(notice.created_at).toLocaleDateString()}</p>
                                                                 </div>
-                                                                <div className="d-flex justify-content-between align-items-center mt-4">
+                                                                <div className="d-flex justify-content-between align-items-center mt-3">
                                                                     <p className="card-text description-notice">{notice.description}</p>                                                            
                                                                     <Dropdown>
                                                                         <Dropdown.Toggle className="btn btnblue" id={`dropdown-basic-${notice.id}`}>

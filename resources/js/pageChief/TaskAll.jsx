@@ -5,6 +5,8 @@ import AuthUser from "../pageAuth/AuthUser";
 import Config from "../Config";
 import { Dropdown } from 'react-bootstrap';
 import ModalTask from '../components/Modals/ModalTask';
+import ModalDeleteNotice from "../components/Modals/ModalDeleteTask";
+import ModalDeleteTask from "../components/Modals/ModalDeleteTask";
 
 const TaskAll = () => {
 
@@ -13,6 +15,9 @@ const TaskAll = () => {
     const [tasks, setTasks] = useState([])
     const [showDetailModal, setShowDetailModal] = useState(false);
     const [selectedTask, setSelectedTask] = useState(null);
+
+    const [showDeleteConfirmModal, setShowDeleteConfirmModal] = useState(false);
+    const [taskIdToDelete, setTaskIdToDelete] = useState(null); 
 
      useEffect(()=>{
              const role = getRol()
@@ -41,13 +46,14 @@ const TaskAll = () => {
     const submitDelete = async (id) => {
         const token = getToken()
         
-        const isDelete = window.confirm("¿Desea borrar la tarea?")
-            if(isDelete){
+            if(token){
                 await Config.taskDelete(token, id)
+                handleCloseDeleteModal();
                 getTaskAll()
             }
         }
 
+    //ModalDetail
     const handleOpenDetailModal = (task) => {
         setSelectedTask(task);
         setShowDetailModal(true);
@@ -58,15 +64,27 @@ const TaskAll = () => {
         setSelectedTask(null);
     };
 
+    //ModalDelete
+    const handleOpenDeleteModal = (taskId) => {
+        setTaskIdToDelete(taskId);
+        setShowDeleteConfirmModal(true);
+    };
+
+    const handleCloseDeleteModal = () => {
+        setShowDeleteConfirmModal(false);
+        setTaskIdToDelete(null);
+    };
+
     return(   
-        <div className="row justify-content-center mt-5 mb-5 me-5 ms-5">
-                <div className="col-md-12  mt-3 mb-3">   
+        <div className="row justify-content-center m-5">
+                <div className="col-md-10 mt-3 mb-3">   
                     <h3 className="text-center text-white">Lista de tareas</h3>
                     <Link to={`create`} className="btn btnblue">Crear tarea</Link>
                     <div className="mt-3 mb-3">
-                        <div className="card-body">
+                        <div className="card-body d-flex justify-content-center">
                             <div className="table-responsive "> 
                                 <table className="mt-3 mb-3" style={{
+                                    border: 'none',
                                     borderRadius: '10px',
                                     overflow: 'hidden'
                                 }}>
@@ -120,7 +138,7 @@ const TaskAll = () => {
                                                                 <Dropdown.Item as={Link} onClick={() => handleOpenDetailModal(task)}>Ver</Dropdown.Item>
                                                                 <ModalTask show={showDetailModal} onHide={handleCloseDetailModal} taskData={selectedTask} />
                                                                 <Dropdown.Item as={Link} to={`edit/${task.id}`}>Editar</Dropdown.Item>
-                                                                <Dropdown.Item onClick={()=>{submitDelete(task.id)}}>Eliminar</Dropdown.Item>
+                                                                <Dropdown.Item className="text-danger" onClick={()=>{handleOpenDeleteModal(task.id)}}>Eliminar</Dropdown.Item>
                                                             </Dropdown.Menu>
                                                         </Dropdown>
                                                     </td>
@@ -134,6 +152,12 @@ const TaskAll = () => {
                         </div>
                     </div>
                 </div>
+                <ModalDeleteTask
+                    show={showDeleteConfirmModal}
+                    onHide={handleCloseDeleteModal}
+                    taskId={taskIdToDelete} // Pasa el ID de la noticia a eliminar
+                    onConfirm={submitDelete} // Pasa la función que se ejecutará al confirmar
+                />
             </div>
     )
 }

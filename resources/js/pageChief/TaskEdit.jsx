@@ -73,30 +73,29 @@ const TaskEdit = () => {
         }
 
     return(
-        <div className="container bg-light">
             <div className="row justify-content-center mt-5 mb-5">
                  <div className="col-sm-9 mt-3">
-                    <h1 className="text-center">Editar tarea</h1>
+                    <h1 className="text-center text-white">Editar tarea</h1>
                 </div>
                 <div className="col-sm-6 mt-3 mb-3">
-                    <div className="card">
+                    <div className="card cardEdit">
                         <div className="card-header">EDITAR TAREA</div>
                         <div className="card-body">
                             <form onSubmit={submitUpdate}>
 
                                 <div className="col-sm-12">
                                     <label htmlFor="title">Nombre:</label>
-                                    <input type="text" className="form-control" value={name} onChange={(e)=>setName(e.target.value)} />
+                                    <input type="text" className="form-control mt-1 mb-2" value={name} onChange={(e)=>setName(e.target.value)} />
                                 </div>
 
                                 <div className="mb-6">
                                     <label htmlFor="description">Descripción:</label>
-                                    <textarea className="form-control" value={description} onChange={(e)=>setDescription(e.target.value)} />
+                                    <textarea className="form-control mt-1 mb-2" value={description} onChange={(e)=>setDescription(e.target.value)} />
                                 </div>
 
                                 <div className="col-sm-12">
                                     <label>Servicio:</label>
-                                    <select className="form-control" value={selectedService} onChange={(e) =>setSelectedService(Number(e.target.value))} >
+                                    <select className="form-control mt-1 mb-2" value={selectedService} onChange={(e) =>setSelectedService(Number(e.target.value))} >
                                     {services.map((service) => (
                                         <option key={service.id} value={service.id}>
                                             {service.name}
@@ -105,16 +104,15 @@ const TaskEdit = () => {
                                 </select>
                                 </div>
                                 
-                                <div className="btn-group mt-3">
-                                    <Link to={-1} className="btn btn-secondary">Volver</Link>
-                                    <button type="submit" className="btn btn-primary">Editar</button>
+                                <div className="mt-3 d-flex justify-content-end">
+                                    <Link to={-1} className="btn btn-secondary me-3">Volver</Link>
+                                    <button type="submit" className="btn btnblue">Editar</button>
                                 </div>
                             </form>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
     )
 }
 
