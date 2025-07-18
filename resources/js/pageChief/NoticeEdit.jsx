@@ -108,7 +108,7 @@ const NoticeEdit = () => {
                                         <label htmlFor="description">Imagen:</label>
                                         <input className="form-control mt-1 mb-2" type="file" onChange={(e)=>handleInputChange(e)} />
                                     </div>
-                                    <img src={`/img/notice/${urlfoto}`} width={200} height={200} loading="lazy" className="img-fluid img-thumbnail mt-2 mb-2" />
+                                    <img src={`/img/notice/${urlfoto}`} width={200} height={200} loading="lazy" className="img-fluid img-thumbnail mt-2 mb-2 ms-3" />
                                 </div>
 
                                 <div className="col-sm-12">

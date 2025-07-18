@@ -77,7 +77,7 @@ const Home = () => {
                                                 className="d-block mx-auto img-fluid w-100 imgNotice" />
                                             </div>
                                             <div className="textNotice col-md-8 text-white d-flex flex-column">
-                                                <h3 className="card-title mt-4" style={{maxWidth: '350px'}}>{notice.title}</h3>
+                                                <h3 className="card-title mt-4" style={{maxWidth: '400px'}}>{notice.title}</h3>
                                                 <div className="d-flex justify-content-between align-items-baseline mt-4">
                                                     <p className="card-text description-notice">{notice.description}</p>
                                                     <p className="card-time mt-auto">{new Date(notice.created_at).toLocaleDateString()}</p>

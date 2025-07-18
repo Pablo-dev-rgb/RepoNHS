@@ -58,17 +58,23 @@ const TaskAll = () => {
         setSelectedTask(null);
     };
 
-    return(
-         <div className="container bg-light">
-            <div className="row justify-content-center mt-5 mb-5">
+    return(   
+        <div className="row justify-content-center mt-5 mb-5 me-5 ms-5">
                 <div className="col-md-12  mt-3 mb-3">   
-                    <h3 className="text-center">Lista de tareas</h3>
-                    <Link to={`create`} className="btn btn-secondary">Crear tarea</Link>
+                    <h3 className="text-center text-white">Lista de tareas</h3>
+                    <Link to={`create`} className="btn btnblue">Crear tarea</Link>
                     <div className="mt-3 mb-3">
                         <div className="card-body">
                             <div className="table-responsive "> 
-                                <table className="bg-white mt-3 mb-3">
-                                    <thead className="bg-secondary">
+                                <table className="mt-3 mb-3" style={{
+                                    borderRadius: '10px',
+                                    overflow: 'hidden'
+                                }}>
+                                    <thead className="" 
+                                    style={{
+                                        backgroundColor: '#468EBB',
+                                        color: 'white'
+                                    }}>
                                         <tr>
                                             <th className="px-4">Tarea</th>
                                             <th className="ps-4 pe-4">Descripcion</th>
@@ -78,12 +84,15 @@ const TaskAll = () => {
                                             <th></th>
                                         </tr>
                                     </thead>
-                                    <tbody>
+                                    <tbody style={{
+                                        backgroundColor: '#34393C',
+                                        color: 'white'
+                                    }}>
                                     {
                                         tasks.map((task)=>{
                                             return(
                                                 <tr className="border-top border-bottom border-secondary" key={task.id}>
-                                                    <td className="py-3 pe-3">{task.name}</td>
+                                                    <td className="p-3">{task.name}</td>
                                                     <td className="py-3 pe-3 description-cell">{task.description}</td>
                                                     <td className="py-3 pe-3">{task.service.name}</td>
                                                     <td className="text-center py-3 pe-3">{new Date(task.created_at).toLocaleDateString()}</td>
@@ -104,7 +113,7 @@ const TaskAll = () => {
                                                     </td>
                                                     <td className="py-3 pe-3"> 
                                                         <Dropdown>
-                                                            <Dropdown.Toggle className="mb-3 " variant="secondary" id={`dropdown-basic-${task.id}`}>
+                                                            <Dropdown.Toggle className="mb-3 btnblue" variant="secondary" id={`dropdown-basic-${task.id}`}>
                                                                 Opciones
                                                             </Dropdown.Toggle>
                                                             <Dropdown.Menu>
@@ -126,7 +135,6 @@ const TaskAll = () => {
                     </div>
                 </div>
             </div>
-        </div>
     )
 }
 

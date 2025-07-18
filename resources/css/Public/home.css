@@ -5,7 +5,7 @@
 .noticeCard{
     background-color: #34393C;
     border-radius: 10px;
-    max-height: 300px; 
+    max-height: 250px; 
     overflow: hidden;
 }
 
@@ -46,7 +46,7 @@
 .description-notice{
     max-width: 500px;
     display: -webkit-box; /* Necesario para -webkit-line-clamp */
-    -webkit-line-clamp: 5;
+    -webkit-line-clamp: 4;
     -webkit-box-orient: vertical; /* Necesario para -webkit-line-clamp */
     overflow: hidden; /* Oculta el texto que se desborda */
     text-overflow: ellipsis;

@@ -9,20 +9,17 @@ const ModalDeleteNotice = ({ show, onHide, noticeId, onConfirm }) => {
 
     return (
         <Modal show={show} onHide={onHide} centered>
-            <Modal.Header closeButton>
-                <Modal.Title>Confirmar Eliminación</Modal.Title>
+            <Modal.Header className="text-center modalHead">
+                <Modal.Title>¿Estás seguro de que deseas eliminar esta noticia?</Modal.Title>
             </Modal.Header>
-            <Modal.Body>
-                ¿Estás seguro de que deseas eliminar esta noticia? Esta acción no se puede deshacer.
-            </Modal.Body>
-            <Modal.Footer>
-                <Button variant="secondary" onClick={onHide}>
+            <Modal.Body className="d-flex justify-content-center modalBody">
+                <Button className="me-5" variant="secondary" onClick={onHide}>
                     Cancelar
-                </Button>
-                <Button variant="danger" onClick={handleDeleteConfirm}>
+            </Button>
+            <Button variant="danger" onClick={handleDeleteConfirm}>
                     Eliminar
-                </Button>
-            </Modal.Footer>
+            </Button>
+            </Modal.Body>
         </Modal>
     )
 }

@@ -27,7 +27,7 @@ class TaskController extends Controller
 
     //Mostrar  lista tareas
     public function index(){
-        $data = Task::with('service')->get();
+        $data = Task::with('service')->orderByDesc('created_at')->get();
         // $data = Task::get(["id", "name", "description", "completed","service_id", "created_at"]);
         return response()->json($data, 200);
     }

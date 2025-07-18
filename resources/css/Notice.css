@@ -13,3 +13,13 @@
     color: white;
     border: none;
 }
+
+.modalHead{
+    background-color: #468EBB;
+    color: white;
+    border-bottom: none;
+}
+
+.modalBody{
+    background-color: #34393C;
+}
