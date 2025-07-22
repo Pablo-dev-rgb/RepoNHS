@@ -5,7 +5,6 @@ import AuthUser from "../pageAuth/AuthUser";
 import Config from "../Config";
 import { Dropdown } from 'react-bootstrap';
 import ModalTask from '../components/Modals/ModalTask';
-import ModalDeleteNotice from "../components/Modals/ModalDeleteTask";
 import ModalDeleteTask from "../components/Modals/ModalDeleteTask";
 
 const TaskAll = () => {
@@ -41,7 +40,7 @@ const TaskAll = () => {
         })
             // console.log(response)
             // setNotices(response)
-        }
+    }
 
     const submitDelete = async (id) => {
         const token = getToken()
@@ -77,7 +76,7 @@ const TaskAll = () => {
 
     return(   
         <div className="row justify-content-center m-5">
-                <div className="col-md-10 mt-3 mb-3">   
+                <div className="col-md-11 mt-3 mb-3">   
                     <h3 className="text-center text-white">Lista de tareas</h3>
                     <Link to={`create`} className="btn btnblue">Crear tarea</Link>
                     <div className="mt-3 mb-3">
@@ -94,7 +93,7 @@ const TaskAll = () => {
                                         color: 'white'
                                     }}>
                                         <tr>
-                                            <th className="px-4">Tarea</th>
+                                            <th className="px-4 description-title">Tarea</th>
                                             <th className="ps-4 pe-4">Descripcion</th>
                                             <th className="px-4">Servicio</th>
                                             <th className="px-4">Fecha</th>
@@ -158,7 +157,7 @@ const TaskAll = () => {
                     taskId={taskIdToDelete} // Pasa el ID de la noticia a eliminar
                     onConfirm={submitDelete} // Pasa la función que se ejecutará al confirmar
                 />
-            </div>
+        </div>
     )
 }
 

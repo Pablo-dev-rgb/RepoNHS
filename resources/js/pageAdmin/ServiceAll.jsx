@@ -35,43 +35,52 @@ const ServiceAll = () => {
     }
 
     return(
-        <div className="container bg-light">
-            <div className="row justify-content-center mt-5 mb-5">
-                <div className="col-sm-12 mt-3 mb-3">
-                    <h3 className="text-center">LISTA SERVICIOS</h3>
-                    <Link to={`create`} className="btn btn-secondary">Crear Servicio</Link>
-                    <div className="card mt-3 mb-3">
-                        <div className="card-body">
-                            <table className="table">
-                                <thead>
+            <div className="row justify-content-center m-5">
+                <div className="col-md-10 mt-3 mb-3">
+                    <h3 className="text-center text-white">Lista servicios</h3>
+                    <Link to={`create`} className="btn btnblue">Crear Servicio</Link>
+                    <div className="mt-3 mb-3">
+                    <div className="card-body">
+                            <table className="mt-3 mb-3" style={{
+                                    border: 'none',
+                                    borderRadius: '10px',
+                                    overflow: 'hidden'
+                                }}>
+                                <thead style={{
+                                        backgroundColor: '#468EBB',
+                                        color: 'white'
+                                    }}>
                                     <tr>
-                                        <th>NOMBRE</th><th>HOSPITAL</th><th>ACCION</th>
+                                        <th className="px-4">Nombre</th>
+                                        <th className="px-4">Hospital</th>
+                                        <th className="px-4">Acción</th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody style={{
+                                        backgroundColor: '#34393C',
+                                        color: 'white'
+                                    }}>
                                     { !services ? (
-                                        <tr>
-                                        <td>...loading</td>
+                                        <tr className="border-top border-bottom border-secondary">
+                                        <td className="p-3">...loading</td>
                                         </tr>
                                     ) : (
                                         services.map((service) => (
-                                        <tr key={service.id}>
-                                            <td>{service.name}</td>
-                                            <td>{service.hospital.name}</td>
-                                            <td>
-                                                <Link to={`edit/${service.id}`} className="btn btn-secondary">Editar</Link>
+                                        <tr className="border-top border-bottom border-secondary" key={service.id}>
+                                            <td className="p-3">{service.name}</td>
+                                            <td className="p-3">{service.hospital.name}</td>
+                                            <td className="p-3">
+                                                <Link to={`edit/${service.id}`} className="btn btnblue">Editar</Link>
                                             </td>
                                         </tr>
                                         ))
                                     )}
                                 </tbody>
                             </table>
-                           
-                        </div>
                     </div>
                 </div>
+                </div>
             </div>
-        </div>
     )
 }
 

@@ -54,3 +54,7 @@
     overflow: hidden; /* Oculta el texto que se desborda */
     text-overflow: ellipsis;
 }
+
+.description-title{
+    min-width: 200px;
+}

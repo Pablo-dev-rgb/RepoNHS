@@ -106,7 +106,7 @@ const TaskEdit = () => {
                                 
                                 <div className="mt-3 d-flex justify-content-end">
                                     <Link to={-1} className="btn btn-secondary me-3">Volver</Link>
-                                    <button type="submit" className="btn btnblue">Editar</button>
+                                    <button type="submit" className="btn btnblue">Guardar</button>
                                 </div>
                             </form>
                         </div>

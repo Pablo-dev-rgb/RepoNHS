@@ -62,29 +62,39 @@ const TaskAll = () => {
     };
 
     return(
-        <div className="container bg-light">
-            <div className="row justify-content-center mt-5 mb-5">
-                <div className="col-sm-12 mt-3 mb-3">
-                    <h3 className="text-center">Lista Tarea</h3>
-                    <div className="card">
-                        <div className="card-body">
+            <div className="row justify-content-center m-5">
+                <div className="col-md-11 mt-3 mb-3">
+                    <h3 className="text-center text-white">Lista Tarea</h3>
+                        <div className="card-body d-flex justify-content-center">
                             <div className="table-responsive ">
-                            <table className="col-sm-12 bg-white mt-3 mb-3">
-                                <thead className="bg-secondary">
+                            <table className="mt-3 mb-3" style={{
+                                    border: 'none',
+                                    borderRadius: '10px',
+                                    overflow: 'hidden',
+                                    tableLayout: 'fixed'
+                                }}>
+                                <thead className="" 
+                                    style={{
+                                        backgroundColor: '#468EBB',
+                                        color: 'white'
+                                    }}>
                                     <tr>
-                                        <th>Tarea</th>
-                                        <th>Descripción</th>
-                                        <th>Fecha</th>
-                                        <th>Completado</th>
+                                        <th className="px-4 description-title">Tarea</th>
+                                        <th className="ps-4 pe-4">Descripción</th>
+                                        <th className="px-4">Fecha</th>
+                                        <th className="px-4">Completado</th>
                                         <th></th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody style={{
+                                        backgroundColor: '#34393C',
+                                        color: 'white'
+                                    }}>
                                     {
                                         tasks.map((task)=>{
                                             return(
                                                 <tr className="border-top border-bottom border-secondary" key={task.id}>
-                                                    <td className="py-3 pe-3">{task.name}</td>
+                                                    <td className="p-3" style={{width: '180px;'}}>{task.name}</td>
                                                     <td className="py-3 pe-3 description-cell">{task.description}</td>
                                                     <td className="text-center py-3 pe-3">{new Date(task.created_at).toLocaleDateString()}</td>
                                                     <td className="text-center py-3 pe-3">
@@ -103,7 +113,7 @@ const TaskAll = () => {
                                                         </div>
                                                     </td>
                                                     <td>
-                                                        <button as={Link} onClick={() => handleOpenDetailModal(task)} className="btn btn-secondary">Ver</button>
+                                                        <button as={Link} onClick={() => handleOpenDetailModal(task)} className="m-3 btn btnblue">Ver</button>
                                                         <ModalTask show={showDetailModal} onHide={handleCloseDetailModal} taskData={selectedTask} />
                                                     </td>
                                                 </tr>
@@ -114,10 +124,8 @@ const TaskAll = () => {
                             </table>
                             </div>
                         </div>
-                    </div>
                 </div>
             </div>
-        </div>
     )
 }
 
