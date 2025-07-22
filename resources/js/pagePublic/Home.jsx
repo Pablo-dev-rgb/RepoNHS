@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Config from "../Config";
 import axios from "axios";
 import PaginatorNotice from "../components/PaginatorNotice";
+import { Link } from "react-router-dom";
 
 const Home = () => {
 
@@ -67,40 +68,39 @@ const Home = () => {
                     </div>
                 <div className="row justify-content-center">
                     {
-                        notices.map((notice)=>{
-                            return(
-                                <div className="d-flex" key={notice.id}>
-                                    <div className="mt-3 mb-3 w-100">
-                                        <div className="noticeCard card-body d-flex flex-wrap">
-                                            <div className="col-md-4">
-                                                <img src={"/img/notice/" + notice.urlfoto}
-                                                className="d-block mx-auto img-fluid w-100 imgNotice" />
-                                            </div>
-                                            <div className="textNotice col-md-8 text-white d-flex flex-column">
-                                                <h3 className="card-title mt-4" style={{maxWidth: '400px'}}>{notice.title}</h3>
+                    notices.map((notice)=>{
+                        return(
+                            <div className="d-flex" key={notice.id}>
+                                <div className="mt-3 mb-3 w-100">
+                                    <div className="noticeCard card-body d-flex flex-wrap">
+                                        <div className="col-md-4">
+                                            <img src={"/img/notice/" + notice.urlfoto}
+                                            className="d-block mx-auto img-fluid w-100 imgNotice" />
+                                        </div>
+                                        <div className="textNotice col-md-8 text-white d-flex flex-column">
+                                            <Link to={`notice/${notice.id}`} className="card-title mt-4" style={{maxWidth: '400px'}}>{notice.title}</Link>
                                                 <div className="d-flex justify-content-between align-items-baseline mt-4">
                                                     <p className="card-text description-notice">{notice.description}</p>
                                                     <p className="card-time mt-auto">{new Date(notice.created_at).toLocaleDateString()}</p>
-                                                </div>
-                                                
-                                            </div>
+                                                </div>     
                                         </div>
                                     </div>
                                 </div>
-                            )
-                        })
+                            </div>
+                        )
+                    })
                     }
                 </div>
                 </div>
             </div>
-            {
+                {
                 paginationMeta && (
                     <PaginatorNotice
                         paginationMeta={paginationMeta}
                         handlePageChange={handlePageChange}
                     />
-                )
-            }
+                    )
+                }
         </div>
     )
 }

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import AuthUser from "../pageAuth/AuthUser";
 import Config from "../Config";
-import Sidebar from "./Sidebar";
 import { Link, useNavigate } from "react-router-dom";
 
 const UserAll = () => {
@@ -35,38 +34,51 @@ const UserAll = () => {
     }
 
     return(
-        <div className="container bg-light">
-            <div className="row justify-content-center mt-5 mb-5">
-                <div className="col-sm-12 mt-3 mb-3">
-                    <h3 className="text-center">LISTA USUARIOS</h3>
-                    <Link to={`/admin/register`} className="btn btn-secondary mt-3 mb-3">Registrar usuario</Link>
-                    <div className="card">
-                        <div className="card-body">
-                            <table className="table">
-                                <thead>
-                                    <tr>
-                                        <th>NOMBRE</th><th>SERVICIO</th><th>ACCION</th>
+        <div className="row justify-content-center mt-5 mb-5">
+            <div className="col-md-10 mt-3 mb-3">
+                <h3 className="text-center text-white">Lista de Usuarios</h3>
+                <Link to={`/admin/register`} className="btn btnblue">Registrar usuario</Link>
+                <div className="mt-3 mb-3">
+                    <div className="card-body d-flex justify-content-center">
+                        <table style={{
+                            border: 'none',
+                            borderRadius: '10px',
+                            overflow: 'hidden',
+                            width: '100%'
+                        }}>
+                            <thead className="" style={{
+                                backgroundColor: '#468EBB',
+                                color: 'white'
+                            }}>
+                                <tr>
+                                    <th className="px-4">Nombre</th>
+                                    <th className="px-4">Telefono</th>
+                                    <th className="px-4">Servicio</th>
+                                    <th className="px-4">Acción</th>
+                                </tr>
+                            </thead>
+                            <tbody style={{
+                                backgroundColor: '#34393C',
+                                color: 'white'
+                            }}>
+                                { !users ? (
+                                    <tr className="border-top border-bottom border-secondary">
+                                        <td className="p-3">...loading</td>
                                     </tr>
-                                </thead>
-                                <tbody>
-                                    { !users ? (
-                                        <tr>
-                                        <td>...loading</td>
-                                        </tr>
-                                    ) : (
-                                        users.map((user) => (
-                                        <tr key={user.id}>
-                                            <td>{user.name}</td>
-                                            <td>{user.service.name}</td>
-                                            <td>
-                                                <Link to={`edit/${user.id}`} className="btn btn-secondary">Editar</Link>
-                                            </td>
-                                        </tr>
-                                        ))
-                                    )}
-                                </tbody>
-                            </table>
-                        </div>
+                                ) : (
+                                    users.map((user) => (
+                                    <tr className="border-top border-bottom border-secondary" key={user.id}>
+                                        <td className="p-3">{user.name}</td>
+                                        <td className="p-3">{user.phone}</td>
+                                        <td className="p-3">{user.service.name}</td>
+                                        <td className="p-3">
+                                        <Link to={`edit/${user.id}`} className="btn btnblue">Editar</Link>
+                                        </td>
+                                    </tr>
+                                    ))
+                                )}
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>

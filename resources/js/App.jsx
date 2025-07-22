@@ -38,6 +38,7 @@ import TaskEdit from "./pageChief/TaskEdit";
 import LayoutServiceManager from "./layouts/LayoutServiceManager";
 import PanelServiceManager from "./pageServiceManager/PanelServiceManager";
 import TaskAllSM from "./pageServiceManager/TaskAll";
+import NoticeDetails from "./pagePublic/NoticeDetails";
 
 const App = () => {
 
@@ -51,6 +52,7 @@ const App = () => {
                     <Route index element={<Home />} />
                     <Route path="/*" element={<NotFound />} />
                     <Route path="/denegado" element={<AccesoDenegado />} />
+                    <Route path="notice/:id" element={<NoticeDetails/>} />
                 </Route>
                 <Route element={<ProtectedRoutes />}>
                     <Route path="/admin" element={<LayoutAdmin />} >

@@ -113,7 +113,7 @@ const NoticeEdit = () => {
 
                                 <div className="col-sm-12">
                                     <label>Hospital:</label>
-                                    <select className="form-control" value={selectHospital} onChange={(e) => setSelectedHospital(Number(e.target.value))} required>
+                                    <select className="form-control mt-1 mb-2" value={selectHospital} onChange={(e) => setSelectedHospital(Number(e.target.value))} required>
                                     {
                                         hospitals.map((hospital) => (
                                             <option key={hospital.id} value={hospital.id}>
