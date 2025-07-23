@@ -20,6 +20,7 @@ Route::prefix("v1")->group(function(){
     Route::post("/auth/login", [AuthController::class,"login"])->name("login");
     Route::get("/public/notices", [FrontController::class, "notices"]);
     Route::post(("/public/notice/search"), [FrontController::class, "search"]);
+    Route::apiResource("/public/notice", FrontController::class);
 
     //PRIVADO
     Route::group(["middleware" => "auth:sanctum"], function(){

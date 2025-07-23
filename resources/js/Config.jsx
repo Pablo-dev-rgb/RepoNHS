@@ -9,6 +9,7 @@ export default {
     getLogin:(data)=>axios.post(`${base_api_url}/auth/login`, data),
     getNoticeAllPublic:()=>axios.get(`${base_api_url}/public/notices`),
     searchNotices:(data)=>axios.post(`${base_api_url}/public/notice/search`, data),
+    noticeDetailsById:(id)=>axios.get(`${base_api_url}/public/notice/${id}`),
   //PRIVATE
     getLogout:(token) =>axios.post(`${base_api_url}/auth/logout`,{},
         {

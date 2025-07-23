@@ -79,9 +79,12 @@ const Register = () =>{
     }
 
     return(
-        <div className="container">
-            <div className="row justify-content-center">
-                <div className="col-sm-4">
+        <div className="container" style=
+        {{
+            marginLeft: '150px'
+        }}>
+            <div className="row">
+                <div className="col-sm-5">
                     <div className="card mt-5 mb-5">
                         <div className="card-body">
                             <h1 className="text-center fw-bolder">Registro</h1>

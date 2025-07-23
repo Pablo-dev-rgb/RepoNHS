@@ -8,11 +8,18 @@ use App\Models\Notice;
 
 class FrontController extends Controller
 {
+    //obtener noticia y paginación
     public function notices(){
         $notices = Notice::orderByDesc("created_at")->paginate(
             $perPage = 3, $colum = ['*'], $pageName = "notices"
         );
         return response()->json($notices, 200);
+    }
+
+    //Buscar noticia por id
+    public function show($id){
+        $data = Notice::find($id);
+        return response()->json($data, 200);
     }
 
     //Buscador de Noticia
