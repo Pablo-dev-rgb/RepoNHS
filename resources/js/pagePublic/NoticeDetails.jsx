@@ -43,7 +43,7 @@ const NoticeDetails = () => {
                         <img src={"/img/notice/" + urlfoto}
                         className="d-block mx-auto img-fluid w-100 imgNotice" />
                         </div>
-                        <p className="mt-3 mb-3" style={{fontSize: '20px'}}>{description}</p>      
+                        <p className="mt-3 mb-3" style={{fontSize: '15px'}}>{description}</p>      
                 </div>
             </div>
         </div>

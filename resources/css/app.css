@@ -46,3 +46,34 @@ html, body, #root {
   .btnblue:hover {
     background-color: #30A1E5; /* Nuevo color*/
   }
+
+  /*Carta del Login*/
+  .cardLogin{
+     background-color:#34393C; /* De rojo arriba a amarillo abajo */
+    width: 350px;
+    color: white;
+    border: none;
+  }
+
+  .form-control:focus{
+    box-shadow: none;
+    box-shadow: 0 0 0 0.25rem #30A1E5; 
+    outline: 0;
+
+  }
+
+  .form-control-input{
+    margin: 5px;
+    border-radius: 6px; /* Un valor sutil para un redondeo ligero */
+  /* Puedes ajustar este valor a tu gusto.
+     Normalmente, los checkboxes ya tienen un border-radius, pero si lo estás
+     sobrescribiendo con otros estilos, podría ser necesario ponerlo aquí. */
+  transition: border-radius 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  }
+  
+  .form-control-input:hover {
+  outline: 0 !important;
+  box-shadow: 0 0 0 0.25rem rgba(48, 161, 229, 0.5) !important;
+  border-color: #30A1E5 !important;
+  border-radius: 10px;
+}

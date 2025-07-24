@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rule;
 use Spatie\Permission\Models\Role;
 
+use function Laravel\Prompts\error;
+
 class AuthController extends Controller
 {
    //Obtener los roles
@@ -90,11 +92,15 @@ class AuthController extends Controller
 
             $response["token"] = $user->createToken("pj")->plainTextToken;
             $response["user"] = $user;
-            $response["message"] = "Logueado";
-            $response["success"] = true;  
-         }
+            $response["success"] = true;
 
-         return response()->json($response, 200);
+            return response()->json($response, 200);
+         }else{
+            return response()->json([
+            'success' => false,
+            'message' => 'Contraseña y/o email incorrecto.',
+            ], 401);
+         }
     }
 
     public function logout(){

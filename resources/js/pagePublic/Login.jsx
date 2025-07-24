@@ -9,7 +9,8 @@ const Login = ()=>{
     const { setToken, getToken} = AuthUser()
     const [password, setPassword] = useState("");
     const [email, setEmail] = useState("");
-    const [message, setMessage] = useState("");
+    const [message, setMessage] = useState('');
+    const [showPassword, setShowPassword] = useState(false);
     const navigate = useNavigate()
 
     useEffect(()=>{
@@ -20,47 +21,82 @@ const Login = ()=>{
     
     const submitLogin = async(e) => {
         e.preventDefault();
-         await axios.get("/sanctum/csrf-cookie").then((response)=>{
-            Config.getLogin({email,password})
-            .then(({data})=>{
-                if(data.success){
-                    // console.log(data)
-                    setToken(
+        try {
+        await axios.get("/sanctum/csrf-cookie");
+        const { data } = await Config.getLogin({ email, password });
+        // Si la solicitud fue exitosa (código 200 OK) pero el backend dice success: false
+        if (data.success) {
+            if (data.user && data.user.roles && data.user.roles.length > 0) {
+                setToken(
                     data.user,
                     data.token,
                     data.user.roles[0].name
-                )
-            }else{
-                setMessage(data.message)
+                );
             }
-        })
-     })
+        }
+        } catch (error) {
+            if (error.response) {
+                // El servidor respondió con un código de estado fuera de 2xx
+                setMessage(error.response.data.message || 'Contraseña y/o email incorrecto.');
+            }
+        }
     }
 
     return(
+        <div style={{
+            backgroundImage: 'url("/img/fondoLogin.png")',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
+            height: '100vh',
+            width: '100vw',
+            display: 'flex',
+            justifyContent: 'flex-start',
+            alignItems: 'center'
+        }}>
+            <div className="row justify-content-content-start ">
+                    <div className="col-sm-4 cardLogin" style={{marginLeft:'250px'}}>
+                        
+                            <div className="card-body">
+                                <h1 className="text-center fw-bolder mt-3 mb-3">Inicio de sesión</h1>
 
+                                <input type="email" className="form-control mt-5 mb-3" placeholder="Email:" value={email} 
+                                onChange={(e)=>setEmail(e.target.value)} required/>
 
-            <div className="row justify-content-center">
-                <div className="col-sm-4">
-                    <div className="card mt-5 mb-5">
-                        <div className="card-body">
-                            <h1 className="text-center fw-bolder">Inicio de sesión</h1>
+                                <input
+                                    type={showPassword ? "text" : "password"}
+                                    className="form-control mt-3"
+                                    placeholder="Contraseña:"
+                                    value={password}
+                                    onChange={(e) => setPassword(e.target.value)}
+                                    required
+                                />
 
-                            <input type="email" className="form-control mt-3" placeholder="Email:" value={email} 
-                            onChange={(e)=>setEmail(e.target.value)} required/>
+                                {/* LA NUEVA CASILLA DE VERIFICACIÓN */}
+                                <div className="form-check mt-3 p-0">
+                                    <input
+                                    type="checkbox"
+                                    className="form-control-input"
+                                    id="showPasswordCheckbox"
+                                    checked={showPassword}
+                                    onChange={() => setShowPassword(!showPassword)} // Invierte el estado
+                                    />
+                                    <label className="form-check-label" htmlFor="showPasswordCheckbox">
+                                    Mostrar contraseña
+                                    </label>
+                                </div>
 
-                            <input type="password" className="form-control mt-3" placeholder="Contraseña:" value={password} 
-                            onChange={(e)=>setPassword(e.target.value)} required/>
-                            
-                            <button onClick={submitLogin} className="btn btn-primary w-100 mt-3">Iniciar sesion</button>
-                            <p className="text-center mt-3">{message}</p>
-                            <p className="text-center mt-3"><a href="#" className="small text-decoration-none">Términos y condiciones</a></p>
-                        </div>
+                                {message && (
+                                <p className="text-center mt-3" style={{fontSize: '15px',color: 'white', textDecoration: 'underline', textDecorationColor: '#30A1E5'}}>
+                                {message}
+                                </p>
+                                )}
+                                
+                                <button onClick={submitLogin} className="btn btnblue w-100 mt-3 mb-4" style={{borderRadius:'20px', height:'50px'}}>Iniciar sesion</button>
+                            </div>
                     </div>
                 </div>
-            </div>
-
-
+        </div>
     )
 }
 
