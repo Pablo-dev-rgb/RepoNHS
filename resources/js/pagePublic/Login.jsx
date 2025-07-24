@@ -48,16 +48,16 @@ const Login = ()=>{
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat',
-            height: '100vh',
+            minHeight: '100vh',
             width: '100vw',
             display: 'flex',
             justifyContent: 'flex-start',
             alignItems: 'center'
         }}>
-            <div className="row justify-content-content-start ">
-                    <div className="col-sm-4 cardLogin" style={{marginLeft:'250px'}}>
-                        
-                            <div className="card-body">
+            <div className="row justify-content-content-start w-100 m-0">
+                <div className="col-sm-8 col-md-6 col-lg-4 d-flex justify-content-start">
+                    <div className="cardLogin">
+                        <div className="card-body me-2 ms-2">
                                 <h1 className="text-center fw-bolder mt-3 mb-3">Inicio de sesión</h1>
 
                                 <input type="email" className="form-control mt-5 mb-3" placeholder="Email:" value={email} 
@@ -94,6 +94,7 @@ const Login = ()=>{
                                 
                                 <button onClick={submitLogin} className="btn btnblue w-100 mt-3 mb-4" style={{borderRadius:'20px', height:'50px'}}>Iniciar sesion</button>
                             </div>
+                        </div>
                     </div>
                 </div>
         </div>

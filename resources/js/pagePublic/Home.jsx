@@ -78,8 +78,8 @@ const Home = () => {
                                             className="d-block mx-auto img-fluid w-100 imgNotice" />
                                         </div>
                                         <div className="textNotice col-md-8 text-white d-flex flex-column">
-                                            <Link to={`notice/${notice.id}`} className="card-title mt-4" style={{maxWidth: '400px'}}>{notice.title}</Link>
-                                                <div className="d-flex justify-content-between align-items-baseline mt-4">
+                                            <Link to={`notice/${notice.id}`} className="card-title mt-4" style={{maxWidth: '450px'}}>{notice.title}</Link>
+                                                <div className="d-flex justify-content-between align-items-baseline mt-2">
                                                     <p className="card-text description-notice">{notice.description}</p>
                                                     <p className="card-time mt-auto">{new Date(notice.created_at).toLocaleDateString()}</p>
                                                 </div>     

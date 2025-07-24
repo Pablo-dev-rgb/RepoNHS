@@ -11,7 +11,7 @@ class UserController extends Controller
     //Mostramos la lista de los usuarios filtrado por rol
     public function index(){
 
-        $data = User::with('service')->get();
+        $data = User::with('service')->orderByDesc('created_at')->get();
         return response()->json($data, 200);
     }
 

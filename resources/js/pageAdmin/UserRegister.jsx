@@ -79,15 +79,23 @@ const Register = () =>{
     }
 
     return(
-        <div className="container" style=
-        {{
-            marginLeft: '150px'
+        <div style={{
+            backgroundImage: 'url("/img/fondoLogin.png")',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
+            minHeight: '100vh',
+            width: '100vw',
+            display: 'flex',
+            justifyContent: 'flex-start',
+            alignItems: 'center'
         }}>
-            <div className="row">
-                <div className="col-sm-5">
-                    <div className="card mt-5 mb-5">
-                        <div className="card-body">
-                            <h1 className="text-center fw-bolder">Registro</h1>
+            <div className="row justify-content-content-start w-100 m-0">
+                <div className="col-sm-8 col-md-6 col-lg-4 d-flex justify-content-start">
+                    <div className="cardLogin">
+                        <div className="card-body me-2 ms-2">
+                            <h1 className="text-center fw-bolder mt-3 mb-3">Registro de usuario</h1>
+
                             <input type="text" className="form-control mt-3" placeholder="Nombre:" value={name} 
                             onChange={(e)=>setName(e.target.value)} required/>
 
@@ -129,9 +137,8 @@ const Register = () =>{
                                     ))}
                                 </select>
                             </div>
-                            <button onClick={submitRegistro} className="btn btn-primary w-100 mt-3">Registrarse</button>
-                            <Link to={-1} className="btn btn-secondary w-100 mt-3">Volver</Link>
-                            <p className="text-center mt-3"><a href="#" className="small text-decoration-none">Términos y condiciones</a></p>
+                            <button onClick={submitRegistro} className="btn btnblue w-100 mt-3">Registrarse</button>
+                            <Link to={-1} className="btn btn-secondary w-100 mt-3 mb-3">Volver</Link>
                         </div>
                     </div>
                 </div>

@@ -28,14 +28,13 @@ const NoticeDetails = () => {
             <div className="col-md-8 mt-3 mb-3">
                 <div className="text-white">
                     <div className="d-flex justify-content-between align-items-baseline mt-4">
-                    <h1 className="mt-3 mb-3" style={{maxWidth: '700px', color: '#30A1E5'}}>{title}</h1>
+                    <h1 className="mt-3" style={{maxWidth: '800px', color: '#30A1E5'}}>{title}</h1>
                     <p className="card-time mt-auto">{new Date(created_at).toLocaleDateString()}</p> 
                     </div>
                     <div style=
                     {{
                         width: '100%',
                         height: '400px',
-                        marginTop: '20px',
                         marginBottom: '20px'
                     }
                     }

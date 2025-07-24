@@ -80,7 +80,7 @@ const TaskAll = () => {
                     <h3 className="text-center text-white">Lista de tareas</h3>
                     <Link to={`create`} className="btn btnblue">Crear tarea</Link>
                     <div className="mt-3 mb-3">
-                        <div className="card-body d-flex justify-content-center">
+                        <div className="card-body d-flex">
                             <div className="table-responsive "> 
                                 <table className="mt-3 mb-3" style={{
                                     border: 'none',
