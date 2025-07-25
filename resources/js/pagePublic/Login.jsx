@@ -49,16 +49,15 @@ const Login = ()=>{
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat',
             minHeight: '100vh',
-            width: '100vw',
             display: 'flex',
             justifyContent: 'flex-start',
             alignItems: 'center'
         }}>
-            <div className="row justify-content-content-start w-100 m-0">
-                <div className="col-sm-8 col-md-6 col-lg-4 d-flex justify-content-start">
+            <div className="row justify-content-center w-100 m-0">
+                <div className="col-sm-8 col-md-6 col-lg-4 d-flex justify-content-center">
                     <div className="cardLogin">
-                        <div className="card-body me-2 ms-2">
-                                <h1 className="text-center fw-bolder mt-3 mb-3">Inicio de sesión</h1>
+                        <div className="card-body me-4 ms-4">
+                                <h1 className="text-center fw-bolder mb-5">Inicio de sesión</h1>
 
                                 <input type="email" className="form-control mt-5 mb-3" placeholder="Email:" value={email} 
                                 onChange={(e)=>setEmail(e.target.value)} required/>

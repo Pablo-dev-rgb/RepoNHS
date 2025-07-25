@@ -26,10 +26,10 @@ const NoticeDetails = () => {
     return(
         <div className="row m-5 justify-content-center">
             <div className="col-md-8 mt-3 mb-3">
-                <div className="text-white">
-                    <div className="d-flex justify-content-between align-items-baseline mt-4">
-                    <h1 className="mt-3" style={{maxWidth: '800px', color: '#30A1E5'}}>{title}</h1>
-                    <p className="card-time mt-auto">{new Date(created_at).toLocaleDateString()}</p> 
+                <div className="text-white border-bottom border-top" style={{borderBottomColor: '#9f9f9f', borderTopColor: '#9f9f9f'}}>
+                    <div className="d-flex justify-content-between align-items-baseline mt-4 mb-4">
+                    <h1 style={{maxWidth: '800px', color: '#30A1E5'}}>{title}</h1>
+                    <p className="card-time mb-auto">{new Date(created_at).toLocaleDateString()}</p> 
                     </div>
                     <div style=
                     {{

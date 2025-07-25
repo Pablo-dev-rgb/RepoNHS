@@ -49,11 +49,12 @@ html, body, #root {
 
   /*Carta del Login*/
   .cardLogin{
-    margin-left: auto;
-    margin-right: auto;
     background-color:#34393C;
+    min-height: 400px;
     max-width: 350px;
     width: 90%;
+    display: flex;
+    align-items: center;
     color: white;
     border: none;
     border-radius: 5px;
@@ -61,7 +62,7 @@ html, body, #root {
   }
 
   .cardLogin:hover{
-    box-shadow: -6px 5px 0 rgba(70, 142, 187, 0.5);
+    box-shadow: -6px 5px 0 #468EBB;
   }
 
   /*checkBox*/

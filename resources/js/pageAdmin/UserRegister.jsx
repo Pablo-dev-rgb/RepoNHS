@@ -85,15 +85,14 @@ const Register = () =>{
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat',
             minHeight: '100vh',
-            width: '100vw',
             display: 'flex',
             justifyContent: 'flex-start',
             alignItems: 'center'
         }}>
-            <div className="row justify-content-content-start w-100 m-0">
-                <div className="col-sm-8 col-md-6 col-lg-4 d-flex justify-content-start">
+            <div className="row justify-content-center w-100 m-0">
+                <div className="col-sm-8 col-md-6 col-lg-4 d-flex justify-content-center">
                     <div className="cardLogin">
-                        <div className="card-body me-2 ms-2">
+                        <div className="card-body me-4 ms-4">
                             <h1 className="text-center fw-bolder mt-3 mb-3">Registro de usuario</h1>
 
                             <input type="text" className="form-control mt-3" placeholder="Nombre:" value={name} 
@@ -106,7 +105,7 @@ const Register = () =>{
                             onChange={(e)=>setPassword(e.target.value)} required/>
 
                             <div className="mt-3">
-                                <label>Rol: </label>
+                                <label className="mb-1">Rol: </label>
                                 <select className="form-control" value={selectedRole} onChange={(e) => setSelectedRole(e.target.value)} required>
                                     {roles.map((role) => (
                                         <option key={role.id} value={role.name}>
@@ -117,7 +116,7 @@ const Register = () =>{
                             </div>
 
                             <div className="mt-3">
-                                <label>Hospital: </label>
+                                <label className="mb-1">Hospital: </label>
                                 <select className="form-control" value={selectedHospital} onChange={(e) => setSelectedHospital(Number(e.target.value))} required>
                                     {hospitals.map((hospital) => (
                                         <option key={hospital.id} value={hospital.id}>
@@ -128,7 +127,7 @@ const Register = () =>{
                             </div>
 
                             <div className="mt-3">
-                                <label>Servicio: </label>
+                                <label className="mb-1">Servicio: </label>
                                 <select className="form-control" value={selectedService} onChange={(e) => setSelectedService(Number(e.target.value))} required>
                                     {services.map((service) => (
                                         <option key={service.id} value={service.id}>

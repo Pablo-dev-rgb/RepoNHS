@@ -82,7 +82,7 @@ const TaskAll = () => {
                     <div className="mt-3 mb-3">
                         <div className="card-body d-flex">
                             <div className="table-responsive "> 
-                                <table className="mt-3 mb-3" style={{
+                                <table style={{
                                     border: 'none',
                                     borderRadius: '10px',
                                     overflow: 'hidden'

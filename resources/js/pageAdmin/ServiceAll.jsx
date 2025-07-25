@@ -41,7 +41,7 @@ const ServiceAll = () => {
                     <Link to={`create`} className="btn btnblue">Crear Servicio</Link>
                     <div className="mt-3 mb-3">
                     <div className="card-body d-flex justify-content-center">
-                            <table className="mt-3 mb-3" style={{
+                            <table style={{
                                     border: 'none',
                                     borderRadius: '10px',
                                     overflow: 'hidden',
